@@ -3,8 +3,6 @@ import sqlite3
 
 pcg_app = Flask(__name__)
 
-db = sqlite3.connect("pcg.db")
-
 DATABASE = "pcg.db"
 
 def get_db():
