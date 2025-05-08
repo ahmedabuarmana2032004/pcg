@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PCG: Palestine Courses Gathering</title>
-    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/' + custom_css + '.css') }}">
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
@@ -12,6 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=1.0">
 </head>
 <body>
     
@@ -34,53 +36,64 @@
                 <a href="/about" ><i class="fas fa-info-circle"></i>من نحن </a>
             </div>
         </nav>
+
+        <div class="container">
+            <div class="main-content">
+                {% block body %}
+                {% endblock %}
+                <h1 class="fade-in">اهلاً وسهلاً بكم في تجمع كورسات فلسطين</h1>
+            </div>
+            <div class="right-sidebar">
+                <div class="ad-box" data-aos="zoom-in">
+                    <p>توجد دورات Udemy مجانية يمكنك الوصول اليها من هنا <a href="https://linktr.ee/brain_tech_1542024" target="_blank">Brain Tech</a></p>
+                </div>
+                <div class="ad-box" data-aos="zoom-in">
+                    <p>إذا كنت شركة أو مؤسسة تقدم دورات وترغب بإضافة دوراتك على المنصة، يمكنك التواصل معنا مباشرة على الرقم: <b>0567809047</b></p>
+                </div>
+                <div class="ad-box" data-aos="zoom-in">
+                    <p>لإضافة إعلانات هنا على المنصة، يمكنك التواصل معنا مباشرة على الرقم: <b>0567809047</b></p>
+                </div>
+                <div class="ad-box" data-aos="zoom-in">
+                    <p>يمكنكم التواصل معنا عبر Telegram من الرابط التالي <a href="https://t.me/pcg752025" target="_blank">PCG</a></p>
+                </div>
+            </div>
+        </div>
+        
     </header>
 
-    <div class="container">
-        <div class="main-content">
-            <h1 class="fade-in">اهلاً وسهلاً بكم في تجمع كورسات فلسطين</h1>
-            {% block body %}
-            {% endblock %}
-        </div>
-
-        <!-- Sidebar للإعلانات -->
-        <div class="right-sidebar">
-            <div class="ad-box" data-aos="zoom-in">
-                <p>توجد دورات Udemy مجانية يمكنك الوصول اليها من هنا <a href="https://linktr.ee/brain_tech_1542024" target="_blank">Brain Tech</a></p>
-            </div>
-            <div class="ad-box" data-aos="zoom-in">
-                <p>إذا كنت شركة أو مؤسسة تقدم دورات وترغب بإضافة دوراتك على المنصة، يمكنك التواصل معنا مباشرة على الرقم: <b>0567809047</b></p>
-            </div>
-            <div class="ad-box" data-aos="zoom-in">
-                <p>لإضافة إعلانات هنا على المنصة، يمكنك التواصل معنا مباشرة على الرقم: <b>0567809047</b></p>
-            </div>
-            <div class="ad-box" data-aos="zoom-in">
-                <p>يمكنكم التواصل معنا عبر Telegram من الرابط التالي <a href="https://t.me/pcg752025" target="_blank">PCG</a></p>
-            </div>
-        </div>
+    <div>
     </div>
 
     <footer>
         &copy; 2025 جميع الحقوق محفوظة لـ "تجمع كورسات فلسطين (PCG)"
     </footer>
 
-    <script>
-        function toggleMenu() {
-            document.getElementById("navLinks").classList.toggle("show");
-        }
-    </script>
-
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true,
-        });
+    AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true,
+    });
     </script>
 
     <script>
-        document.querySelector('.filter-form')?.addEventListener('submit', function() {
+        function toggleMenu() {
+        document.getElementById("navLinks").classList.toggle("show");
+        }
+    </script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    
+    <script>
+    AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true,
+    });
+    </script>
+    
+    <script>
+        document.querySelector('.filter-form').addEventListener('submit', function() {
             this.querySelector('.filter-button').innerHTML = '<span class="spinner"></span> جاري البحث...';
         });
     </script>
