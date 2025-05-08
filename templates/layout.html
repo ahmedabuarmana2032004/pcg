@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=1.0">
+    
 </head>
 <body>
     
@@ -39,9 +39,9 @@
 
         <div class="container">
             <div class="main-content">
+                <h1 class="fade-in">اهلاً وسهلاً بكم في تجمع كورسات فلسطين</h1>
                 {% block body %}
                 {% endblock %}
-                <h1 class="fade-in">اهلاً وسهلاً بكم في تجمع كورسات فلسطين</h1>
             </div>
             <div class="right-sidebar">
                 <div class="ad-box" data-aos="zoom-in">
@@ -67,15 +67,6 @@
     <footer>
         &copy; 2025 جميع الحقوق محفوظة لـ "تجمع كورسات فلسطين (PCG)"
     </footer>
-
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <script>
-    AOS.init({
-        duration: 800,
-        easing: 'ease-in-out',
-        once: true,
-    });
-    </script>
 
     <script>
         function toggleMenu() {
