@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block title %}اهلاً وسهلاً بكم في تجمع كورسات فلسطين{% endblock %}
+
+{% block body %}
+<div class="hero-section">
+    <div class="hero-content">
+        <h1 class="main-title">اهلاً وسهلاً بكم في تجمع كورسات فلسطين</h1>
+        <p class="slogan">بوابتك التعليمية نحو مستقبل أفضل</p>
+        
+        <div class="cta-buttons">
+            <a href="/spaces" class="cta-button primary">استكشف المساحات التعليمية</a>
+            <a href="/courses" class="cta-button secondary">تصفح الدورات المتاحة</a>
+        </div>
+    </div>
+    
+    <div class="hero-image">
+        <img src="{{ url_for('static', filename='images/education-hero.jpeg') }}" alt="التعليم في فلسطين">
+    </div>
+</div>
+
+<div class="features-section">
+    <h2 class="section-title">لماذا تختار تجمع كورسات فلسطين؟</h2>
+    
+    <div class="features-grid">
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="feature-icon">📚</div>
+            <h3>محتوى تعليمي متنوع</h3>
+            <p>أفضل الكورسات في مختلف المجالات التقنية والعلمية</p>
+        </div>
+        
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="feature-icon">💻</div>
+            <h3>مساحات عمل مشتركة</h3>
+            <p>بيئة محفزة للتعلم والعمل الجماعي</p>
+        </div>
+        
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="feature-icon">👨‍🏫</div>
+            <h3>خبراء متخصصون</h3>
+            <p>تعلم من محترفين في مجالاتهم</p>
+        </div>
+    </div>
+</div>
+
+<div class="testimonials-section">
+    <h2 class="section-title">آراء طلابنا</h2>
+    
+    <div class="testimonials-slider">
+        <div class="testimonial" data-aos="zoom-in" data-aos-delay="100">
+            <p>"تجمع كورسات فلسطين ساعدني في تطوير مهاراتي البرمجية والحصول على كورس جيد في شركة رائدة في التقنية"</p>
+            <div class="author">- أحمد، مطور ويب</div>
+        </div>
+        <div class="testimonial" data-aos="zoom-in" data-aos-delay="100">
+            <p>"تجمع كورسات فلسطين ساعدني في العثور على مساحة عمل مناسبة وقريبة من منزلي"</p>
+            <div class="author">- أنس، طالب جامعي</div>
+        </div>
+    </div>
+</div>
+{% endblock %}

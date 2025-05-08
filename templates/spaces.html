@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block title %}Spaces{% endblock %}
+
+{% block body %}
+<h1 class="fade-in">المساحات الدراسية المتاحة</h1>
+
+<div class="filter-container">
+    <form method="GET" action="/spaces" class="filter-form">
+        <div class="filter-group">
+            <label for="city">اختر المدينة:</label>
+            <select name="city" class="filter-select">
+                <option disabled selected>اختر المدينة</option>
+                {% for c in cities %}
+                    <option value="{{ c['city'] }}" {% if request.args.get('city') == c['city'] %}selected{% endif %}>{{ c['city'] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <button type="submit" class="filter-button">بحث</button>
+    </form>
+
+    {% if spaces|length == 0 %}
+        <p class="no-results">لا توجد مساحات مطابقة لخيارات البحث الحالية.</p>
+    {% endif %}
+</div>
+
+<div class="spaces-grid">
+    {% for space in spaces %}
+    <div class="space-card" data-aos="flip-left" data-aos-delay="{{ loop.index * 100 }}">
+            <img src="{{ url_for('static', filename='/spaces/' + space.image) }}" alt="Image of {{ space.english_name }}" class="space-image">
+            <h2 class="space_english_name">{{ space.english_name }}</h2>
+            <p><strong>المدينة: </strong> {{ space.city }}</p>
+            <p><strong>العنوان: </strong> {{ space.address }}</p>
+            <p><strong>ساعات العمل: </strong> {{ space.start_working }} - {{ space.end_working }}</p>
+            {% if space.price_per_hour %}
+            <p><strong>السعر/ساعة</strong> {{ space.price_per_hour }} شيكل</p>
+            {% endif %}
+            <p><strong>رقم الهاتف: </strong> 0{{ space.phone_number }}</p>
+
+
+            <!-- <p class="social-media"><strong>للتواصل: </strong> <a href="{{ space.social_media_account }}" target="_blank"> اضغط هنا </a> </p> -->
+            <div class="social-links">
+                <strong>للتواصل : </strong>
+                    {% if space['facebook_account'] %}
+                    <a href="{{ space['facebook_account'] }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    {% endif %}
+                    {% if space['whatsapp_account'] %}
+                    <a href="{{ space['whatsapp_account'] }}" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    {% endif %}
+                    {% if space['instagram_account'] %}
+                    <a href="{{ space['instagram_account'] }}" target="_blank"><i class="fab fa-instagram"></i></a>
+                    {% endif %}
+                    {% if space['telegram_account'] %}
+                    <a href="{{ space['telegram_account'] }}" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+                    {% endif %}
+            </div>
+            
+            <p><strong>المميزات: </strong> {{ space.features }}</p>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

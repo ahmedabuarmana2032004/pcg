@@ -1,0 +1,186 @@
+{% extends "layout.html" %}
+
+{% block title %}مركز المساعدة{% endblock %}
+
+{% block body %}
+
+<section class="help-center" dir="rtl">
+    <div class="help-container">
+        <div class="help-header" data-aos="fade-up">
+            <h1><i class="fas fa-question-circle"></i> بحاجة إلى مساعدة؟</h1>
+            <p class="subtitle">مرحبًا بكم في مركز مساعدة PCG. هنا ستجدون الإجابات والإرشادات للاستفادة القصوى من منصتنا.</p>
+        </div>
+
+        <div class="help-grid">
+            <!-- بطاقات الإرشادات -->
+            <div class="guide-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="guide-icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <h3>كيفية العثور على الدورات</h3>
+                <p>قم بزيارة صفحة "اكتشف الدورات" حيث يمكنك التصفح حسب الفئة، التصفية حسب الموقع، والاتصال بالمقدمين مباشرة - دون الحاجة لتسجيل دخول.</p>
+                <a href="/courses" class="guide-link">استكشف الدورات <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <div class="guide-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="guide-icon">
+                    <i class="fas fa-wifi"></i>
+                </div>
+                <h3>كيفية استخدام مساحات الدراسة</h3>
+                <p>اكتشف مساحات الدراسة المتاحة المجهزة باتصال إنترنت موثوق ومقابس كهرباء. يتضمن كل موقع صورًا، مرافق، ومعلومات التوفر.</p>
+                <a href="/spaces" class="guide-link">ابحث عن مساحات <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <div class="guide-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="guide-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3>انضم كمقدم خدمة</h3>
+                <p>هل تقدم دورات تعليمية أو مساحات دراسة؟ انضم إلى PCG للتواصل مع آلاف الطلاب في جميع أنحاء فلسطين.</p>
+                <a href="https://t.me/pcg752025" target="_blank" class="guide-link">كن شريكًا <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <!-- قسم الأسئلة الشائعة -->
+            <div class="faq-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="faq-header">
+                    <i class="fas fa-question"></i>
+                    <h3>الأسئلة الشائعة</h3>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>كيف أضيف إعلانات؟</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>اتصل بنا عبر حساب <a href="https://t.me/pcg752025" target="_blank">Telegram</a> أو عبر الاتصال الهاتفي على الرقم 0567809047.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>هل أحتاج للتسجيل؟</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>يمكنك الوصول إلى جميع قوائم الدورات ومساحات الدراسة دون إنشاء حساب</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>هل يمكنني التسجيل عبر PCG؟</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>نحن نوصلك مباشرة بمقدمي الدورات. يتم التسجيل عبر منصاتهم لضمان حصولك على شهادة رسمية.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>هل الدورات مجانية أم مدفوعة؟</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>يعتمد ذلك على مقدم الخدمة. بعضها يوفر دورات مجانية، بينما قد يتقاضى آخرون رسومًا. نعرض هذه المعلومات بوضوح في صفحة الدورة.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>كيف أتواصل مع مقدم الدورة؟</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>يتضمن كل إعلان عن دورة طريقة اتصال مثل البريد الإلكتروني، واتساب، أو رابط مباشر لموقع مقدم الخدمة.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>هل يمكنني ترك تقييم أو مراجعة؟</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>نحن نعمل على نظام للتقييمات. حاليًا يمكنك الاتصال بنا لمشاركة تجربتك وسنقوم بإرسالها لمقدم الخدمة.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>ما هي مساحة الدراسة؟</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>مساحة الدراسة هي موقع (مثل مقهى، مكتبة، أو مساحة عمل مشتركة) مزود بالكهرباء وإنترنت سريع، حيث يمكن للطلاب الدراسة براحة.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>كم مرة يتم إضافة دورات جديدة؟</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>تتم إضافة فرص جديدة أسبوعيًا. تحقق من الصفحة الرئيسية للحصول على آخر التحديثات.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>هل يمكنني اقتراح إضافة دورة أو مقدم خدمة؟</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>بالتأكيد! استخدم نموذج "اتصل بنا" أو راسلنا واخبرنا باقتراحك.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>هل هناك تطبيق جوال؟</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>موقعنا متكامل مع الأجهزة المحمولة. بينما ليس لدينا تطبيق أصلي بعد، يمكنك حفظه على شاشتك الرئيسية للوصول السريع.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- بطاقة الاتصال -->
+            <div class="contact-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="contact-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3>ما زلت بحاجة للمساعدة؟</h3>
+                <p>فريق الدعم لدينا جاهز لمساعدتك في أي استفسارات حول استخدام PCG.</p>
+                <div class="contact-methods">
+                    <a href="https://t.me/pcg752025" target="_blank" class="contact-email">
+                        <i class="fab fa-telegram-plane"></i> Telegram
+                    </a>
+                    <a href="https://wa.me/qr/HFPA6WK4ANDLP1" target="_blank" class="contact-email">
+                        <i class="fab fa-whatsapp"></i> Whatsapp
+                    </a>
+                    <a href="https://t.me/pcg752025" class="contact-button" target="_blank">
+                        <i class="fas fa-comment-dots"></i> الدردشة المباشرة
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // وظيفة تبديل الأسئلة الشائعة
+    document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', () => {
+            const answer = question.nextElementSibling;
+            const icon = question.querySelector('i');
+            
+            answer.classList.toggle('active');
+            icon.classList.toggle('rotate');
+            question.classList.toggle('open');
+            
+            // إغلاق الأسئلة الأخرى المفتوحة
+            document.querySelectorAll('.faq-answer').forEach(item => {
+                if (item !== answer && item.classList.contains('active')) {
+                    item.classList.remove('active');
+                    item.previousElementSibling.querySelector('i').classList.remove('rotate');
+                }
+            });
+        });
+    });
+
+</script>
+{% endblock %}
