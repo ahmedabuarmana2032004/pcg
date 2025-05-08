@@ -95,13 +95,13 @@ footer {
     display: flex;
     padding: 20px;
     text-align: center;
-    flex-wrap: wrap;
 }
 
 .main-content {
     flex: 1;
     padding: 20px;
     background-color: #f5f7ff;
+    flex-wrap: 1 1 0%;
 }
 
 .right-sidebar {
@@ -113,6 +113,9 @@ footer {
     border-radius: 10px;
     position:static;
     top: 80px;
+    flex: 0 0 250px;
+    min-width: 250px;
+    position: static;
 }
 
 .ad-box {
