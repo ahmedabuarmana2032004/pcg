@@ -95,6 +95,7 @@ footer {
     display: flex;
     padding: 20px;
     text-align: center;
+    flex-wrap: wrap;
 }
 
 .main-content {
