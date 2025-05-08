@@ -92,19 +92,20 @@ footer {
 }
 
 .container {
-    display: flex;
-    padding: 20px;
     text-align: center;
-    flex-direction: row-reverse;
+    display: flex;
+    flex-direction: row-reverse; /* ممتاز لأنه RTL */
     gap: 30px;
+    padding: 20px;
+
 }
 
 .main-content {
     flex: 3;
     padding: 20px;
     background-color: #f5f7ff;
-    flex-wrap: 1 1 0%;
 }
+
 
 .right-sidebar {
     width: 250px;
