@@ -1,7 +1,7 @@
 from flask import Flask, render_template, g, request
 import sqlite3
 
-pcg_app = Flask(__name__)
+app = Flask(__name__)
 
 DATABASE = "pcg.db"
 
