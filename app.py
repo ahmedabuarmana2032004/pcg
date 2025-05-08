@@ -12,22 +12,22 @@ def get_db():
     return g.db
 
 
-@pcg_app.teardown_appcontext
+@app.teardown_appcontext
 def close_db(error):
     db = g.pop('db', None)
     if db is not None:
         db.close()
 
 
-@pcg_app.route("/")
+@app.route("/")
 def homepage():
     return render_template("homepage.html", custom_css ="homepage")
 
-@pcg_app.route("/about")
+@app.route("/about")
 def about():
     return render_template("about.html", custom_css ="about")
 
-@pcg_app.route("/courses", methods=["GET"])
+@app.route("/courses", methods=["GET"])
 def courses():
     db = get_db()
 
@@ -76,7 +76,7 @@ def courses():
     )
 
 
-@pcg_app.route("/spaces")
+@app.route("/spaces")
 def spaces():
     db = get_db()
     city_filter = request.args.get("city")
@@ -97,10 +97,10 @@ def spaces():
 
     return render_template("spaces.html", custom_css="spaces", spaces=spaces, cities=cities)
 
-@pcg_app.route("/help")
+@app.route("/help")
 def help():
     return render_template("help.html", custom_css ="help")
 
 
 if __name__ == "__main__":
-    pcg_app.run(debug=True, port=9000)
+    app.run(debug=True, port=9000)
