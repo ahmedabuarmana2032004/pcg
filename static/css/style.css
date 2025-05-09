@@ -119,9 +119,7 @@ footer {
     flex: 1;
     min-width: 250px;
     position: static;
-
-
-    display: flex;
+    display: block;
     flex-direction: column;
     gap: 20px;
     min-height: 300px;
