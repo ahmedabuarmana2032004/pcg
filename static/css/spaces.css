@@ -30,6 +30,7 @@
     background-position: left 1rem center;
     background-size: 0.75rem;
     direction: rtl;
+    font-family: 'Tajawal', 'Cairo', sans-serif;
 }
 
 .filter-select:focus {
