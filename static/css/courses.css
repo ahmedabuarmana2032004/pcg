@@ -526,7 +526,7 @@ body {
 .search-button {
   grid-column: span 2;
   padding: 0.8rem 1.2rem;
-  background-color: #009688;
+  background-color: #3498db;
   color: #fff;
   border: none;
   border-radius: 10px;
