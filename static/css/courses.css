@@ -475,14 +475,14 @@ body {
 }
 
 /* Filter dropdown layout */
-.filter-dropdown {
+.filter-form {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
 }
 
 /* Labels styling */
-.filter-dropdown label {
+.filter-form label {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 600;
@@ -506,7 +506,7 @@ body {
 }
 
 /* Search button styling */
-.filter-dropdown button {
+.filter-form button {
   grid-column: span 2;
   padding: 0.8rem 1.2rem;
   background-color: #009688;
@@ -519,7 +519,7 @@ body {
   margin-top: auto;
 }
 
-.filter-dropdown button:hover {
+.filter-form button:hover {
   background-color: #00796b;
 }
 
