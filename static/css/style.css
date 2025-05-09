@@ -1,7 +1,7 @@
 body {
     direction: rtl;
     text-align: right;
-    font-family: 'Tajawal', 'Cairo', sans-serif; /* Use Arabic-friendly fonts */
+    font-family: 'Tajawal', 'Cairo', sans-serif;
 }
 
 nav {
@@ -94,7 +94,7 @@ footer {
 .container {
     text-align: center;
     display: flex;
-    flex-direction: row-reverse; /* ممتاز لأنه RTL */
+    flex-direction: row-reverse; 
     gap: 30px;
     padding: 20px;
 
@@ -127,7 +127,7 @@ footer {
     min-height: 300px;
 }
 
-/* .ad-box {
+.ad-box {
     background: linear-gradient(to right, #e2eaff, #f5f8ff);
     padding: 15px;
     margin-bottom: 20px;
@@ -139,7 +139,7 @@ footer {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 
-} */
+}
 
 
 .ad-box:hover {
@@ -148,7 +148,6 @@ footer {
 }
 
 .nav-links a::after {
-    /* content: attr(data-tooltip); */
     position: absolute;
     bottom: -25px;
     left: 50%;
@@ -170,7 +169,7 @@ footer {
 }
 
 .nav-links a:hover {
-    background-color: rgba(0, 0, 0, 0.5); /* transparent version of #1C409E */
+    background-color: rgba(0, 0, 0, 0.5);
     transition: background-color 0.3s;
     border-radius: 5px;
     padding: 5px;
