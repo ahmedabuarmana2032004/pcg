@@ -1,7 +1,11 @@
 from flask import Flask, render_template, g, request
 import sqlite3
 
-app = Flask(__name__)
+
+
+app = Flask(__name__, static_folder='static', static_url_path='/static')
+
+db = sqlite3.connect("pcg.db")
 
 DATABASE = "pcg.db"
 
@@ -101,6 +105,10 @@ def spaces():
 def help():
     return render_template("help.html", custom_css ="help")
 
+
+@app.route("/youtube_channels")
+def youtube_channels():
+    return render_template("youtube_channels.html", custom_css="youtube_channels")
 
 if __name__ == "__main__":
     app.run(debug=True, port=9000)
