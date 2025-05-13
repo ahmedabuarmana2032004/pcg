@@ -3,9 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="تجمع كورسات فلسطين هو منصة تعليمية مجانية لاستكشاف ومشاركة والوصول إلى أفضل الدورات التعليمية في فلسطين.">
-    <meta name="keywords" content="تجمع كورسات فلسطين، كورسات مجانية، تعلم عن بعد، منصة تعليمية، pcgplatform، تعليم، تطوير ذاتي، دورات، فلسطين">
-    <meta name="robots" content="index, follow">
     <title>PCG: Palestine Courses Gathering</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -16,16 +13,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CEYCSB6405"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-CEYCSB6405');
-    </script>
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9609981531539813" crossorigin="anonymous"></script>
 </head>
 <body>
     
@@ -44,8 +31,10 @@
             <div class="nav-links" id="navLinks">
                 <a href="/courses" ><i class="fas fa-book-open"></i>كورسات </a>
                 <a href="/spaces" ><i class="fas fa-location-dot"></i>مساحات العمل </a>
+                <a href="/youtube_channels" ><i class="fa-brands fa-youtube"></i>قنوات يوتيوب</a>
                 <a href="/help" ><i class="fas fa-circle-question"></i>مساعدة </a>
                 <a href="/about" ><i class="fas fa-info-circle"></i>من نحن </a>
+
             </div>
         </nav>
 
@@ -56,22 +45,25 @@
                 {% endblock %}
             </div>
             <div class="right-sidebar">
-                <div class="ads">
+                <div class="ads" data-aos="zoom-in">
                     <p>توجد دورات Udemy مجانية يمكنك الوصول اليها من هنا <a href="https://linktr.ee/brain_tech_1542024" target="_blank">Brain Tech</a></p>
                 </div>
-                <div class="ads">
+                <div class="ads" data-aos="zoom-in">
                     <p>إذا كنت شركة أو مؤسسة تقدم دورات وترغب بإضافة دوراتك على المنصة، يمكنك التواصل معنا مباشرة على الرقم: <b>0567809047</b></p>
                 </div>
-                <div class="ads">
+                <div class="ads" data-aos="zoom-in">
                     <p>لإضافة إعلانات هنا على المنصة، يمكنك التواصل معنا مباشرة على الرقم: <b>0567809047</b></p>
                 </div>
-                <div class="ads">
+                <div class="ads" data-aos="zoom-in">
                     <p>يمكنكم التواصل معنا عبر Telegram من الرابط التالي <a href="https://t.me/pcg752025" target="_blank">PCG</a></p>
                 </div>
             </div>
         </div>
         
     </header>
+
+    <div>
+    </div>
 
     <footer>
         &copy; 2025 جميع الحقوق محفوظة لـ "تجمع كورسات فلسطين (PCG)"
