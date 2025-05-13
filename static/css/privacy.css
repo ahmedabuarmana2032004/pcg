@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.privacy-container {
+    max-width: 900px;
+    margin: 50px auto;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+    direction: rtl;
+    text-align: right;
+    line-height: 1.8;
+    font-family: "Cairo", sans-serif;
+}
+
+.privacy-container h1 {
+    font-size: 32px;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+}
+
+.privacy-container h2 {
+    font-size: 24px;
+    color: #34495e;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    position: relative;
+    padding-right: 35px;
+}
+
+.privacy-container h2 .section-number {
+    background-color: #3498db;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 16px;
+}
+
+.privacy-container p,
+.privacy-container li {
+    color: #555;
+    font-size: 17px;
+}
+
+.privacy-container .intro-text {
+    font-size: 18px;
+    margin-bottom: 30px;
+    background-color: #f5f8fa;
+    padding: 20px;
+    border-right: 4px solid #3498db;
+    border-radius: 10px;
+}
+
+.privacy-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0 30px 0;
+}
+
+.privacy-container ul li {
+    position: relative;
+    padding-right: 25px;
+    margin-bottom: 12px;
+}
+
+.privacy-container ul li::before {
+    content: "🔹";
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 14px;
+    color: #2980b9;
+}
+
+.privacy-container a {
+    color: #2980b9;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.privacy-container a:hover {
+    color: #1abc9c;
+    text-decoration: underline;
+}
