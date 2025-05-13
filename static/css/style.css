@@ -1,7 +1,7 @@
 body {
     direction: rtl;
     text-align: right;
-    font-family: 'Tajawal', 'Cairo', sans-serif;
+    font-family: 'Tajawal', 'Cairo', sans-serif; /* Use Arabic-friendly fonts */
 }
 
 nav {
@@ -89,12 +89,33 @@ footer {
     color: white;
     text-align: center;
     padding: 10px;
+    font-size: 16px;
+    font-family: 'Cairo', sans-serif;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 40px;
+    border-top: 4px solid #005f6e;
+}
+
+footer a {
+    color: #ffe082;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #fff176;
+    text-decoration: underline;
 }
 
 .container {
     text-align: center;
     display: flex;
-    flex-direction: row-reverse; 
+    flex-direction: row-reverse; /* ممتاز لأنه RTL */
     gap: 30px;
     padding: 20px;
 
@@ -119,13 +140,14 @@ footer {
     flex: 1;
     min-width: 250px;
     position: static;
-    display: block;
+    display: flex;
     flex-direction: column;
     gap: 20px;
     min-height: 300px;
 }
 
 .ads {
+    
     background: linear-gradient(to right, #e2eaff, #f5f8ff);
     padding: 15px;
     margin-bottom: 20px;
@@ -145,6 +167,7 @@ footer {
 }
 
 .nav-links a::after {
+    /* content: attr(data-tooltip); */
     position: absolute;
     bottom: -25px;
     left: 50%;
@@ -166,7 +189,7 @@ footer {
 }
 
 .nav-links a:hover {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5); /* transparent version of #1C409E */
     transition: background-color 0.3s;
     border-radius: 5px;
     padding: 5px;
