@@ -104,3 +104,34 @@ def help():
 
 if __name__ == "__main__":
     app.run(debug=True, port=9000)
+
+
+from flask import Response
+from datetime import datetime
+
+@app.route("/sitemap.xml", methods=["GET"])
+def sitemap():
+    pages = [
+        {"loc": "https://pcgplatform.com/", "lastmod": "2024-05-13"},
+        {"loc": "https://pcgplatform.com/about", "lastmod": "2024-05-13"},
+        {"loc": "https://pcgplatform.com/courses", "lastmod": "2024-05-13"},
+        {"loc": "https://pcgplatform.com/spaces", "lastmod": "2024-05-13"},
+        {"loc": "https://pcgplatform.com/help", "lastmod": "2024-05-13"}
+    ]
+
+    xml = ['<?xml version="1.0" encoding="UTF-8"?>']
+    xml.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
+
+    for page in pages:
+        xml.append("  <url>")
+        xml.append(f"    <loc>{page['loc']}</loc>")
+        xml.append(f"    <lastmod>{page['lastmod']}</lastmod>")
+        xml.append("    <changefreq>monthly</changefreq>")
+        xml.append("    <priority>0.8</priority>")
+        xml.append("  </url>")
+
+    xml.append("</urlset>")
+
+    response = Response("\n".join(xml), mimetype="application/xml")
+    return response
+
