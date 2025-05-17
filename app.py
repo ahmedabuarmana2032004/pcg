@@ -1,6 +1,6 @@
 from flask import Flask, render_template, g, request
 import sqlite3
-
+from datetime import datetime
 
 
 app = Flask(__name__, static_folder='static', static_url_path='/static')
@@ -94,8 +94,6 @@ def spaces():
 
     cursor = db.execute(query, params)
     spaces = cursor.fetchall()
-
-    # نحضّر قائمة المدن المميزة لعرضها في القائمة المنسدلة
     cities_cursor = db.execute("SELECT DISTINCT city FROM Spaces")
     cities = cities_cursor.fetchall()
 
@@ -108,11 +106,26 @@ def help():
 
 @app.route("/youtube_channels")
 def youtube_channels():
-    return render_template("youtube_channels.html", custom_css="youtube_channels")
+    db = get_db()
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM youtube_courses")
+    youtube_courses = cursor.fetchall()
+    
+    if not youtube_courses:
+        print("No courses found.")
+    
+    return render_template("youtube_channels.html", custom_css="youtube_channels", youtube_courses=youtube_courses)
 
 @app.route('/privacy')
 def privacy():
     return render_template('privacy.html', custom_css='privacy')
+
+
+@app.route('/terms')
+def terms():
+    today = datetime.today().strftime('%Y-%m-%d')
+    return render_template('terms.html', custom_css='terms', today=today)
+
 
 if __name__ == "__main__":
     app.run(debug=True, port=9000)
