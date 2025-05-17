@@ -85,31 +85,88 @@ nav {
 }
 
 footer {
-    background-color: #1C409E;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    font-size: 16px;
+    background: linear-gradient(135deg, #1C409E, #16357F); /* تدرج ملكي */
+    padding: 30px 10px;
     font-family: 'Cairo', sans-serif;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    margin-top: 40px;
-    border-top: 4px solid #005f6e;
+    border-top: 2px solid #102A66;
+    direction: rtl;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
 }
 
-footer a {
-    color: #ffe082;
-    margin-right: 10px;
-    margin-left: 10px;
+.footer-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    color: #ffffff;
+}
+
+.footer-container p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #f0f0f0;
+}
+
+.footer-links {
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    color: #ffffff;
     text-decoration: none;
+    margin: 0 10px;
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
-footer a:hover {
-    color: #fff176;
-    text-decoration: underline;
+.footer-links a:hover {
+    color: #FFD700;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.7);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.social-icons a {
+    color: #ffffff;
+    font-size: 22px;
+    transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 8px;
+    border-radius: 50%;
+}
+
+.social-icons a:hover {
+    color: #FFD700;
+    transform: scale(1.2);
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Responsive for mobile */
+@media (max-width: 600px) {
+    .footer-links a {
+        display: block;
+        margin: 5px 0;
+    }
+
+    .social-icons {
+        gap: 10px;
+        margin-top: 10px;
+    }
+}
+
+
+.social-links a {
+    margin: 0 10px;
+    font-size: 24px;
+    color: #555;
+}
+
+.social-links a:hover {
+    color: #000;
 }
 
 .container {
