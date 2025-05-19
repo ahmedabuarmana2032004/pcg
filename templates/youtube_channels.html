@@ -4,6 +4,33 @@
 <div class="courses-container">
     <h1 class="section-title">كورسات يوتيوب</h1>
 
+<div class="filter-container">
+    <form method="GET" action="/youtube_channels" class="filter-form">
+        <div class="filter-group">
+            <label for="category">اختر المجال: </label>
+            <select name="category" class="filter-select">
+                <option disabled selected>اختر المجال </option>
+                {% for category in categorys %}
+                    <option value="{{ category['category'] }}" {% if request.args.get('category') == category['category'] %}selected{% endif %}>{{ category['category'] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <button type="submit" class="filter-button">بحث</button>
+    </form>
+
+    <!-- Show result count -->
+    <div class="results-count-box">
+        {% if result_count > 0 %}
+            <span class="results-icon">📊</span>
+            <span class="results-text">عدد النتائج: {{ result_count }}</span>
+        {% else %}
+            <span class="results-text no-results">لا توجد كورسات مطابقة لخيارات البحث الحالية.</span>
+        {% endif %}
+    </div>
+</div>
+
+
     <div class="courses-list">
         {% for course in youtube_courses %}
         <div class="course-card" style="animation-delay: {{ loop.index * 0.1 }}s;">
