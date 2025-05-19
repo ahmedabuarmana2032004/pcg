@@ -20,9 +20,15 @@
         <button type="submit" class="filter-button">بحث</button>
     </form>
 
-    {% if spaces|length == 0 %}
-        <p class="no-results">لا توجد مساحات مطابقة لخيارات البحث الحالية.</p>
-    {% endif %}
+    <!-- Show result count -->
+    <div class="results-count-box">
+        {% if result_count > 0 %}
+            <span class="results-icon">📊</span>
+            <span class="results-text">عدد النتائج: {{ result_count }}</span>
+        {% else %}
+            <span class="results-text no-results">لا توجد /ساحات عمل مطابقة لخيارات البحث الحالية.</span>
+        {% endif %}
+    </div>
 </div>
 
 <div class="spaces-grid">
