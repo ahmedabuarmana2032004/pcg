@@ -6,53 +6,64 @@
 <section class="courses-section" dir="rtl">
     <div class="header-container">
             <div>
-            <h1 class="section-title" data-aos="fade-up" data-aos-delay="300">الكورسات المتاحة</h1>
-            
-            <div class="search-filter">
-                <form method="GET" action="/courses" class="filter-form">
-            
-                    <label for="mode">اونلاين/وجاهي</label>
-                    <select name="mode" class="filter-select">
-                        <option disabled selected>اونلاين/وجاهي</option>
-                        {% for oi in onlineOrInperson %}
-                            <option value="{{ oi['online/in-person'] }}" {% if request.args.get('mode') == oi['online/in-person'] %}selected{% endif %}>{{ oi['online/in-person'] }}</option>
-                        {% endfor %}
-                    </select>
-            
-                    <label for="certificate">الشهادة</label>
-                    <select name="certificate" class="filter-select">
-                        <option disabled selected>الشهادة</option>
-                        {% for c in certificate  %}
-                            <option value="{{ c['certificate'] }}" {% if request.args.get('certificate') == c['certificate'] %}selected{% endif %}>{{ c['certificate'] }}</option>
-                        {% endfor %}
-                    </select>
-            
-                    <label for="company">اسم الشركة</label>
-                    <select name="company" class="filter-select">
-                        <option disabled selected>اسم الشركة</option>
-                        {% for company in companies %}
-                            <option value="{{ company['english_name_company'] }}" {% if request.args.get('company') == company['english_name_company'] %}selected{% endif %}>{{ company['english_name_company'] }}</option>
-                        {% endfor %}
-                    </select>
-            
-                    <label for="course">اسم الكورس</label>
-                    <select name="course" class="filter-select">
-                        <option disabled selected>اسم الكورس</option>
-                        {% for course in courses_name %}
-                            <option value="{{ course['english_name_course'] }}" {% if request.args.get('course') == course['english_name_course'] %}selected{% endif %}>{{ course['english_name_course'] }}</option>
-                        {% endfor %}
-                    </select>
-            
-                    <input type="submit" value="بحث" class="search-button">
+                <h1 class="section-title" data-aos="fade-up" data-aos-delay="300">الكورسات المتاحة</h1>
 
-                    {% if courses|length == 0 %}
-                        <p class="no-results">لا توجد كورسات مطابقة لخيارات البحث الحالية.</p>
-                    {% endif %}
-            
+                <div class="filter-container">
+                    <form method="GET" action="/courses" class="filter-form">
+                        <div class="filter-group-horizontal">
+                            <label for="mode">اونلاين/وجاهي</label>
+                            <select name="mode" class="filter-select">
+                                <option disabled selected>اونلاين/وجاهي</option>
+                                {% for oi in onlineOrInperson %}
+                                    <option value="{{ oi['online/in-person'] }}" {% if request.args.get('mode') == oi['online/in-person'] %}selected{% endif %}>{{ oi['online/in-person'] }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="filter-group-horizontal">
+                            <label for="certificate">الشهادة</label>
+                            <select name="certificate" class="filter-select">
+                                <option disabled selected>الشهادة</option>
+                                {% for c in certificate %}
+                                    <option value="{{ c['certificate'] }}" {% if request.args.get('certificate') == c['certificate'] %}selected{% endif %}>{{ c['certificate'] }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="filter-group-horizontal">
+                            <label for="company">اسم الشركة</label>
+                            <select name="company" class="filter-select">
+                                <option disabled selected>اسم الشركة</option>
+                                {% for company in companies %}
+                                    <option value="{{ company['english_name_company'] }}" {% if request.args.get('company') == company['english_name_company'] %}selected{% endif %}>{{ company['english_name_company'] }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="filter-group-horizontal">
+                            <label for="course">اسم الكورس</label>
+                            <select name="course" class="filter-select">
+                                <option disabled selected>اسم الكورس</option>
+                                {% for course in courses_name %}
+                                    <option value="{{ course['english_name_course'] }}" {% if request.args.get('course') == course['english_name_course'] %}selected{% endif %}>{{ course['english_name_course'] }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <button type="submit" class="filter-button">بحث</button>
+
+                        <!-- عرض عدد النتائج -->
+                        <div class="results-count-box">
+                            {% if result_count > 0 %}
+                                <span class="results-icon">📊</span>
+                                <span class="results-text">عدد النتائج: {{ result_count }}</span>
+                            {% else %}
+                                <span class="results-text no-results">لا توجد كورسات مطابقة لخيارات البحث الحالية.</span>
+                            {% endif %}
+                        </div>
                 </form>
             </div>
-            
-            
+
 
             <div class="row">
                 {% for course in courses %}
