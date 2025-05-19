@@ -69,6 +69,8 @@ def courses():
     courses_name = db.execute("SELECT DISTINCT english_name_course FROM courses").fetchall()
     certificate = db.execute("SELECT DISTINCT certificate FROM courses").fetchall()
     onlineOrInperson = db.execute("SELECT DISTINCT `online/in-person` FROM courses").fetchall()
+    result_count = len(courses)
+
     return render_template(
         "courses.html",
         custom_css="courses",
@@ -76,6 +78,7 @@ def courses():
         companies=companies,
         courses_name=courses_name,
         certificate=certificate,
+        result_count=result_count,
         onlineOrInperson=onlineOrInperson
     )
 
@@ -96,8 +99,12 @@ def spaces():
     spaces = cursor.fetchall()
     cities_cursor = db.execute("SELECT DISTINCT city FROM Spaces")
     cities = cities_cursor.fetchall()
-
-    return render_template("spaces.html", custom_css="spaces", spaces=spaces, cities=cities)
+    result_count = len(spaces)
+    return render_template("spaces.html", 
+                                custom_css="spaces", 
+                                spaces=spaces, 
+                                result_count=result_count,
+                                cities=cities)
 
 @app.route("/help")
 def help():
@@ -108,13 +115,31 @@ def help():
 def youtube_channels():
     db = get_db()
     cursor = db.cursor()
-    cursor.execute("SELECT * FROM youtube_courses")
+
+    
+    query = "SELECT * FROM youtube_courses WHERE 1=1"
+    params = []
+
+    categorys_cursor = db.execute("SELECT DISTINCT category FROM youtube_courses")
+    categorys = categorys_cursor.fetchall()
+
+
+    category_filter = request.args.get("category")
+    if category_filter:
+        query += " AND category = ?"
+        params.append(category_filter)
+
+
+    # cursor.execute("SELECT * FROM youtube_courses")
+    cursor = db.execute(query, params)
     youtube_courses = cursor.fetchall()
-    
-    if not youtube_courses:
-        print("No courses found.")
-    
-    return render_template("youtube_channels.html", custom_css="youtube_channels", youtube_courses=youtube_courses)
+    result_count = len(youtube_courses)
+    return render_template(
+        "youtube_channels.html",
+        custom_css="youtube_channels", 
+        youtube_courses=youtube_courses, 
+        result_count=result_count,
+        categorys=categorys)
 
 @app.route('/privacy')
 def privacy():
