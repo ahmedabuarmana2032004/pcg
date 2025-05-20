@@ -4,20 +4,31 @@
 <div class="courses-container">
     <h1 class="section-title">كورسات يوتيوب</h1>
 
-<div class="filter-container">
-    <form method="GET" action="/youtube_channels" class="filter-form">
-        <div class="filter-group">
-            <label for="category">اختر المجال: </label>
-            <select name="category" class="filter-select">
-                <option disabled selected>اختر المجال </option>
-                {% for category in categorys %}
-                    <option value="{{ category['category'] }}" {% if request.args.get('category') == category['category'] %}selected{% endif %}>{{ category['category'] }}</option>
-                {% endfor %}
-            </select>
-        </div>
+        <div class="filter-container">
+            <form method="GET" action="/youtube_channels" class="filter-form">
+                <div class="filter-group">
+                    <label for="category">اختر المجال:</label>
+                    <select name="category" class="filter-select">
+                    <option disabled selected>اختر المجال </option>
+                    {% for category in categorys %}
+                        <option value="{{ category['category'] }}" {% if request.args.get('category') == category['category'] %}selected{% endif %}>{{ category['category'] }}</option>
+                    {% endfor %}
+                    </select>
+                </div>
 
-        <button type="submit" class="filter-button">بحث</button>
-    </form>
+                <div class="filter-group">
+                    <label for="course_title">اختر عنوان الكورس:</label>
+                    <select name="course_title" class="filter-select">
+                        <option disabled selected>اختر عنوان الكورس </option>
+                        {% for course_title in course_titles %}
+                            <option value="{{ course_title['course_title'] }}" {% if request.args.get('course_title') == course_title['course_title'] %}selected{% endif %}>{{ course_title['course_title'] }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+
+                <button type="submit" class="filter-button">بحث</button>
+            </form>
 
     <!-- Show result count -->
     <div class="results-count-box">
@@ -28,7 +39,7 @@
             <span class="results-text no-results">لا توجد كورسات مطابقة لخيارات البحث الحالية.</span>
         {% endif %}
     </div>
-</div>
+    </div>
 
 
     <div class="courses-list">
