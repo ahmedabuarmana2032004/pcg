@@ -176,6 +176,24 @@ body {
 
 /* Filter Style */
 
+.filter-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.filter-group label {
+    flex: 0 0 30%;
+    margin: 0;
+    text-align: right;
+}
+
+.filter-group .filter-select {
+    flex: 1;
+}
+
 .filter-container {
     background-color: #f9f9f9;
     padding: 2rem;
@@ -184,6 +202,9 @@ body {
     margin: 2rem auto;
     max-width: 700px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 .filter-button {
@@ -201,11 +222,11 @@ body {
 }
 
 .filter-container label {
+.filter-container label {
     font-weight: bold;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     color: #2c3e50;
-    margin-bottom: 1rem;
-    display: block;
+}
 }
 
 .filter-select {
