@@ -123,14 +123,21 @@ def youtube_channels():
     categorys_cursor = db.execute("SELECT DISTINCT category FROM youtube_courses")
     categorys = categorys_cursor.fetchall()
 
+    course_title = db.execute("SELECT DISTINCT course_title FROM youtube_courses")
+    course_titles = course_title.fetchall()
 
     category_filter = request.args.get("category")
+    course_title_filter = request.args.get("course_title")
+
+    if course_title_filter:
+        query += " AND course_title = ?"
+        params.append(course_title_filter)
+
     if category_filter:
         query += " AND category = ?"
         params.append(category_filter)
 
 
-    # cursor.execute("SELECT * FROM youtube_courses")
     cursor = db.execute(query, params)
     youtube_courses = cursor.fetchall()
     result_count = len(youtube_courses)
@@ -139,6 +146,7 @@ def youtube_channels():
         custom_css="youtube_channels", 
         youtube_courses=youtube_courses, 
         result_count=result_count,
+        course_titles=course_titles,
         categorys=categorys)
 
 @app.route('/privacy')
