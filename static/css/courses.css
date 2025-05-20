@@ -157,10 +157,10 @@ body {
 
 .company-logo-container {
   position: absolute;
-  top: 100px; 
+  top: 100px;
   left: 20px;
-  background: white; 
-  padding: 5px;
+  background: transparent; /* تغيير من white إلى transparent */
+  padding: 0; /* إزالة الـ padding */
   border-radius: 50%; 
   width: 80px; 
   height: 80px;
@@ -172,14 +172,29 @@ body {
   overflow: hidden; 
 }
 
+.company-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* تغيير من contain إلى cover */
+  border-radius: 50%; /* إضافة هذه الخاصية */
+}
+
 .company-logo-container:hover {
-  transform: scale(1.05); 
+  transform: scale(1.1);
+  transition: var(--transition);
 }
 .course-details {
   padding: 1.5rem;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+}
+
+.company-logo-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 0;
 }
 
 .course-header {
