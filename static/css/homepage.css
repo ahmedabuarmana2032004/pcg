@@ -1,37 +1,48 @@
-/* General Styles */
+/* === القواعد العامة وإعادة التعيين === */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* يضمن أن الهوامش والحشو لا تزيد من حجم العناصر */
+}
+
 body {
     font-family: 'Tajawal', sans-serif;
-    direction: rtl;
+    direction: rtl; /* يدعم اللغات من اليمين لليسار */
     margin: 0;
     padding: 0;
     color: #333;
     background-color: #f9f9f9;
+    overflow-x: hidden; /* يمنع ظهور شريط التمرير الأفقي غير المرغوب فيه */
 }
 
-/* Hero Section */
+/* === قسم البطل (Hero Section) === */
 .hero-section {
     display: flex;
+    flex-direction: row; /* افتراضيًا في صف واحد */
     align-items: center;
     justify-content: space-between;
     padding: 4rem 8%;
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
     color: white;
-    min-height: 80vh;
+    min-height: 80vh; /* ارتفاع أدنى لضمان ظهور المحتوى */
+    flex-wrap: wrap; /* يسمح للعناصر بالالتفاف على الشاشات الصغيرة */
 }
 
 .hero-content {
-    width: 50%;
+  flex: 1; /* يسمح للمحتوى بالنمو */
+  min-width: 300px; /* يضمن عدم تضاؤل المحتوى بشكل مفرط */
+  padding-left: 20px; /* مسافة من الصورة */
 }
 
 .main-title {
-    font-size: 3.5rem;
+    font-size: clamp(2.5rem, 5vw, 3.5rem); /* حجم خط متجاوب */
     margin-bottom: 1.5rem;
     line-height: 1.3;
     font-weight: 700;
-}
+    }
 
 .slogan {
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem); /* حجم خط متجاوب */
     margin-bottom: 2.5rem;
     opacity: 0.9;
 }
@@ -39,6 +50,8 @@ body {
 .cta-buttons {
     display: flex;
     gap: 1rem;
+    flex-wrap: wrap; /* يسمح للأزرار بالالتفاف */
+    justify-content: flex-start; /* تبدأ من اليمين */
 }
 
 .cta-button {
@@ -46,8 +59,10 @@ body {
     border-radius: 50px;
     font-weight: bold;
     text-decoration: none;
-    transition: all 0.3s ease;
     text-align: center;
+    transition: all 0.3s ease;
+    min-width: 140px;
+    white-space: nowrap; /* يمنع انقسام النص داخل الزر */
 }
 
 .primary {
@@ -64,25 +79,29 @@ body {
 .primary:hover {
     background-color: #ff5252;
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .secondary:hover {
-    background-color: rgba(255,255,255,0.1);
+    background-color: rgba(255, 255, 255, 0.1);
     transform: translateY(-3px);
 }
 
 .hero-image {
-    width: 45%;
+  flex: 1; /* يسمح للصورة بالنمو */
+  min-width: 300px; /* يضمن عدم تضاؤل الصورة بشكل مفرط */
+  text-align: center; /* توسيط الصورة عند الحاجة */
 }
 
 .hero-image img {
     width: 100%;
+    max-width: 600px; /* تحديد أقصى عرض للصورة */
+    height: auto;
     border-radius: 10px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
-/* Features Section */
+/* === قسم الميزات (Features Section) === */
 .features-section {
     padding: 6rem 8%;
     background-color: white;
@@ -90,14 +109,14 @@ body {
 
 .section-title {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 4vw, 2.5rem); /* حجم خط متجاوب */
     margin-bottom: 3rem;
     color: #1e3c72;
 }
 
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* يتكيف مع الشاشات المختلفة */
     gap: 2rem;
 }
 
@@ -106,26 +125,28 @@ body {
     border-radius: 10px;
     padding: 2rem;
     text-align: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* تحسين الانتقال */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* ظل افتراضي */
 }
 
 .feature-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .feature-icon {
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-bottom: 1.5rem;
+    color: #2a5298; /* إضافة لون للأيقونات */
 }
 
 .feature-card h3 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin-bottom: 1rem;
     color: #1e3c72;
 }
 
-/* Testimonials Section */
+/* === قسم الشهادات (Testimonials Section) === */
 .testimonials-section {
     padding: 6rem 8%;
     background-color: #f1f5f9;
@@ -140,13 +161,13 @@ body {
     background-color: white;
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     text-align: center;
-    margin: 15px;
+    margin: 15px; /* يترك مسافة إذا كان هناك أكثر من شهادة في السلايدر */
 }
 
 .testimonial p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-style: italic;
     line-height: 1.6;
     margin-bottom: 1rem;
@@ -157,37 +178,112 @@ body {
     color: #1e3c72;
 }
 
-/* Responsive Design */
+/* === التصميم المتجاوب (Responsive Design) === */
 @media (max-width: 992px) {
     .hero-section {
-        flex-direction: column;
+        flex-direction: column; /* ترتيب العناصر عموديًا */
         text-align: center;
-        padding: 4rem 5%;
+        padding: 4rem 5%; /* تقليل الحشو على الجوانب */
     }
-    
-    .hero-content, .hero-image {
-        width: 100%;
+
+    .hero-content {
+        order: 2; /* يضع المحتوى بعد الصورة */
+        padding-left: 0;
+        margin-top: 3rem; /* مسافة بين الصورة والمحتوى */
     }
-    
+
     .hero-image {
-        margin-top: 3rem;
+        order: 1; /* يضع الصورة أولاً */
+        margin-top: 0;
     }
-    
+
     .cta-buttons {
-        justify-content: center;
+        justify-content: center; /* توسيط الأزرار */
     }
 }
 
 @media (max-width: 768px) {
+    .hero-section {
+        padding: 3rem 4%; /* تقليل الحشو أكثر */
+        min-height: auto; /* يسمح للقسم بأخذ الارتفاع الطبيعي للمحتوى */
+    }
+
     .main-title {
-        font-size: 2.5rem;
+        font-size: clamp(2rem, 8vw, 2.2rem); /* ضبط أحجام الخطوط لتناسب الجوالات */
+        margin-bottom: 1rem;
     }
-    
+
     .slogan {
-        font-size: 1.2rem;
+        font-size: clamp(1rem, 4vw, 1.1rem); /* ضبط أحجام الخطوط لتناسب الجوالات */
+        margin-bottom: 1.5rem;
     }
-    
+
     .section-title {
+        font-size: clamp(1.6rem, 6vw, 1.8rem); /* ضبط أحجام الخطوط لتناسب الجوالات */
+        margin-bottom: 2rem;
+    }
+
+    .cta-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .feature-icon {
         font-size: 2rem;
+    }
+
+    .features-section,
+    .testimonials-section {
+        padding: 4rem 4%; /* تقليل حشو الأقسام */
+    }
+
+    .feature-card {
+        padding: 1.5rem; /* تقليل حشو بطاقات الميزات */
+    }
+
+    .testimonial {
+        padding: 1.5rem; /* تقليل حشو الشهادات */
+        margin: 10px; /* تقليل المسافة في السلايدر */
+    }
+}
+
+@media (max-width: 576px) {
+    .main-title {
+        font-size: clamp(1.8rem, 9vw, 2rem); /* حجم خط متجاوب أكثر للهواتف الصغيرة */
+    }
+
+    .slogan {
+        font-size: clamp(0.9rem, 3.5vw, 1rem);
+    }
+
+    .section-title {
+        font-size: clamp(1.4rem, 7vw, 1.6rem);
+    } 
+
+    .cta-buttons {
+        flex-direction: column; /* ترتيب الأزرار عموديًا */
+        align-items: center; /* توسيط الأزرار */
+        gap: 0.8rem; /* مسافة أقل بين الأزرار */
+    } 
+
+    .cta-button {
+        width: 90%; /* الأزرار تأخذ عرضًا شبه كامل */
+        max-width: 250px;
+    }
+
+    .hero-content {
+        margin-top: 2rem; /* مسافة أقل بين الصورة والمحتوى على الشاشات الصغيرة جدًا */
+    }
+
+    .hero-image {
+        max-width: 90%; /* الصورة تأخذ عرضًا شبه كامل */
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr; /* عمود واحد لبطاقات الميزات */
+    }
+
+    .testimonial p {
+        font-size: 1rem; /* تقليل حجم خط نص الشهادة */
     }
 }
