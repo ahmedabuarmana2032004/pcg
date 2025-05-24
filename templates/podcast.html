@@ -2,7 +2,7 @@
 
 {% block body %}
 <div class="courses-container">
-    <h1 class="section-title">كورسات يوتيوب</h1>
+    <h1 class="section-title">بودكاست | Podcast</h1>
 
         <div class="filter-container">
             <form method="GET" action="/podcast" class="filter-form">
@@ -17,18 +17,19 @@
 
                 <div class="filter-group">
                     <select name="podcast_guest" class="filter-select">
-                    <option disabled selected>ضيف البودكاست</option>
-                    {% for podcast_guest in podcast_guests %}
-                        <option value="{{ podcast_guest['podcast_guest'] }}" {% if request.args.get('podcast_guest') == podcast_guest['podcast_guest'] %}selected{% endif %}>{{ podcast_guest['podcast_guest'] }}</option>
-                    {% endfor %}
+                        <option disabled selected>ضيف البودكاست</option>
+                        {% for podcast_guest in podcast_guests %}
+                            <option value="{{ podcast_guest['podcast_guest'] }}" {% if request.args.get('podcast_guest') == podcast_guest['podcast_guest'] %}selected{% endif %}>{{ podcast_guest['podcast_guest'] }} </option>
+                        {% endfor %}
                     </select>
                 </div>
+
 
                 <div class="filter-group">
                     <select name="podcast_name" class="filter-select">
                     <option disabled selected>اسم البودكاست</option>
                     {% for podcast_name in podcast_names %}
-                        <option value="{{ podcast_name['podcast_name'] }}" {% if request.args.get('podcast_name') == podcast_name['podcast_name'] %}selected{% endif %}>{{ podcast_name['podcast_name'] }}</option>
+                        <option value="{{ podcast_name['podcast_name'] }}" {% if request.args.get('podcast_name') == podcast_name['podcast_name'] %}selected{% endif %}>بودكاست {{ podcast_name['podcast_name'] }}</option>
                     {% endfor %}
                     </select>
                 </div>
@@ -64,17 +65,13 @@
                 </div>
             
                 <div>
-                <h2 class="podcast-title">{{ podcast["podcast_title"] }}</h2>
+                    <h2 class="podcast-title">{{ podcast["podcast_title"] }}</h2>
                     <p class="podcast-description">بودكاست {{ podcast["podcast_name"] }}</p>
                     <div class="podcast-details">
                         <p><strong>ضيف البودكاست:</strong> {{ podcast["podcast_guest"] }}</p>
                         <p><strong>مجال البودكاست:</strong> {{ podcast["podcast_field"] }}</p>
                         <p><strong>المدة:</strong> {{ podcast["duration_h"] }} ساعة و {{ podcast["duration_m"] }} دقيقة </p>
                     </div>
-
-                    <a href="{{ podcast['podcast_url'] }}" class="course-link" target="_blank">
-                        مشاهدة البودكاست على يوتيوب
-                    </a>
                 </div>
             </div>
         {% endfor %}
