@@ -51,7 +51,17 @@
     <div class="podcast-list">
         {% for podcast in podcasts %}
             <div class="podcast-card" style="animation-delay: {{ loop.index * 0.1 }}s;">
-                <img src="{{ url_for('static', filename='podcast/' ~ podcast['podcast_image']) }}" alt="صورة البودكاست">
+                {% set url_parts = podcast['podcast_url'].split('/') %}
+                {% set last_part = url_parts[-1].split('?')[0] %}
+                {% set embed_url = "https://www.youtube.com/embed/" + last_part %}
+                <div class="video-wrapper">
+                    <iframe 
+                        src="{{ embed_url }}" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
             
                 <div>
                 <h2 class="podcast-title">{{ podcast["podcast_title"] }}</h2>
