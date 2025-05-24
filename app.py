@@ -159,6 +159,54 @@ def terms():
     today = datetime.today().strftime('%Y-%m-%d')
     return render_template('terms.html', custom_css='terms', today=today)
 
+@app.route('/podcast')
+def podcast():
+    db = get_db()
+
+
+    query = "SELECT * FROM podcast WHERE 1=1"
+    params = []
+
+    podcast_field_filter = request.args.get("podcast_field")
+    podcast_guest_filter = request.args.get("podcast_guest")
+    podcast_name_filter = request.args.get("podcast_name")
+
+    if podcast_field_filter:
+        query += " AND podcast_field = ?"
+        params.append(podcast_field_filter)
+
+    if podcast_guest_filter:
+        query += " AND podcast_guest = ?"
+        params.append(podcast_guest_filter)
+    
+    if podcast_name_filter:
+        query += " AND podcast_name = ?"
+        params.append(podcast_name_filter)
+
+    cursor = db.execute(query, params)
+    podcasts = cursor.fetchall()
+
+    podcast_fields_cursor = db.execute("SELECT DISTINCT podcast_field FROM podcast")
+    podcast_fields = podcast_fields_cursor.fetchall()
+
+    podcast_guests_cursor = db.execute("SELECT DISTINCT podcast_guest FROM podcast")
+    podcast_guests = podcast_guests_cursor.fetchall()
+
+    podcast_names_cursor = db.execute("SELECT DISTINCT podcast_name FROM podcast")
+    podcast_names = podcast_names_cursor.fetchall()
+
+    result_count = len(podcasts)
+    return render_template(
+        'podcast.html', 
+        custom_css='podcast', 
+        podcasts=podcasts, 
+        podcast_fields=podcast_fields, 
+        podcast_guests=podcast_guests,
+        podcast_names=podcast_names,
+        result_count=result_count)
+
+
+
 
 if __name__ == "__main__":
     app.run(debug=True, port=9000)
