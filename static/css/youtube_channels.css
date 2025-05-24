@@ -1,285 +1,285 @@
 /* Reset وتنسيقات عامة */
 :root {
-    --primary-color: #4361ee;
-    --secondary-color: #3f37c9;
-    --accent-color: #4895ef;
-    --dark-color: #1b263b;
-    --light-color: #f8f9fa;
-    --success-color: #4cc9f0;
-    --warning-color: #f8961e;
-    --danger-color: #f72585;
-    --border-radius: 12px;
-    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --transition: all 0.3s ease;
+  --primary-color: #4361ee;
+  --secondary-color: #3f37c9;
+  --accent-color: #4895ef;
+  --dark-color: #1b263b;
+  --light-color: #f8f9fa;
+  --success-color: #4cc9f0;
+  --warning-color: #f8961e;
+  --danger-color: #f72585;
+  --border-radius: 12px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f5f7fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f5f7fa;
 }
 
 /* تنسيقات الحاوية الرئيسية */
 .courses-container {
-    direction: rtl;
-    text-align: right;
-    max-width: 1400px;
-    margin: 2rem auto;
-    padding: 0 1.5rem;
+  direction: rtl;
+  text-align: right;
+  max-width: 1400px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
 }
 
 /* عنوان القسم */
 .section-title {
-    font-size: 2.5rem;
-    color: var(--dark-color);
-    margin-bottom: 2rem;
-    text-align: center;
-    position: relative;
-    padding-bottom: 0.5rem;
+  font-size: 2.5rem;
+  color: var(--dark-color);
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 0.5rem;
 }
 
 .section-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 50%;
-    transform: translateX(50%);
-    width: 100px;
-    height: 4px;
-    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
-    border-radius: 2px;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  transform: translateX(50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+  border-radius: 2px;
 }
 
 /* قائمة الكورسات */
 .courses-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    padding: 1rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem 0;
 }
 
 /* بطاقة الكورس */
 .course-card {
-    background-color: #fff;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: var(--transition);
-    border: 1px solid #e9ecef;
+  background-color: #fff;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+  border: 1px solid #e9ecef;
+  animation: fadeIn 0.5s ease forwards;
+  opacity: 0;
 }
 
 .course-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .course-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-bottom: 1px solid #e9ecef;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 1px solid #e9ecef;
 }
 
 /* محتوى البطاقة */
 .course-content {
-    padding: 1.5rem;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .course-title {
-    font-size: 1.3rem;
-    margin-bottom: 0.75rem;
-    color: var(--dark-color);
-    text-align: center;
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+  color: var(--dark-color);
+  text-align: center;
 }
 
 .course-description {
-    color: #6c757d;
-    margin-bottom: 1rem;
-    font-size: 0.95rem;
-    line-height: 1.5;
-    text-align: center;
+  color: #6c757d;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: center;
 }
 
 /* تفاصيل الكورس */
 .course-details {
-    margin: 1rem 0;
-    flex: 1;
+  margin: 1rem 0;
+  flex: 1;
 }
 
 .course-details p {
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
-    display: flex;
-    align-items: flex-start;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: flex-start;
 }
 
 .course-details strong {
-    color: var(--dark-color);
-    min-width: 70px;
-    display: inline-block;
-    margin-left: 0.5rem;
+  color: var(--dark-color);
+  min-width: 70px;
+  display: inline-block;
+  margin-left: 0.5rem;
 }
 
 /* رابط الكورس */
 .course-link {
-    display: inline-block;
-    background-color: var(--primary-color);
-    color: white;
-    text-align: center;
-    padding: 0.6rem 1rem;
-    border-radius: var(--border-radius);
-    text-decoration: none;
-    font-weight: 500;
-    transition: var(--transition);
-    margin-top: auto;
-    width: 100%;
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: white;
+  text-align: center;
+  padding: 0.6rem 1rem;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+  margin-top: auto;
+  width: 100%;
 }
 
 .course-link:hover {
-    background-color: var(--secondary-color);
-    transform: translateY(-2px);
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
 }
 
 /* تأثيرات للتفاعل */
 @media (max-width: 768px) {
-    .courses-list {
-        grid-template-columns: 1fr;
-    }
-    
-    .section-title {
-        font-size: 2rem;
-    }
+  .courses-list {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
 }
 
 /* رسوم متحركة بسيطة */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.course-card {
-    animation: fadeIn 0.5s ease forwards;
+  from {
     opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Filter Style */
-
 .filter-group {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .filter-group label {
-    flex: 0 0 30%;
-    margin: 0;
-    text-align: right;
+  flex: 0 0 30%;
+  margin: 0;
+  text-align: right;
 }
 
 .filter-group .filter-select {
-    flex: 1;
+  flex: 1;
 }
 
 .filter-container {
-    background-color: #f9f9f9;
-    padding: 2rem;
-    border-radius: 24px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-    margin: 2rem auto;
-    max-width: 700px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.filter-button {
-    margin-top: 1rem;
-    width: 100%;
-    padding: 1rem;
-    font-size: 1.2rem;
-    font-weight: bold;
-    border-radius: 16px;
-    border: none;
-    background-color: #3498db;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  background-color: #f9f9f9;
+  padding: 2rem;
+  border-radius: 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  margin: 2rem auto;
+  max-width: 700px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .filter-container label {
-.filter-container label {
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: #2c3e50;
-}
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #2c3e50;
 }
 
 .filter-select {
-    width: 100%;
-    padding: 1rem;
-    font-size: 1.1rem;
-    border-radius: 12px;
-    border: 2px solid #dce1e7;
-    background-color: white;
-    color: #2c3e50;
-    appearance: none;
-    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%232c3e50' d='M2 0L0 2h4L2 0zM2 5L0 3h4L2 5z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: left 1rem center;
-    background-size: 0.75rem;
-    direction: rtl;
-    font-family: 'Tajawal', 'Cairo', sans-serif;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  border: 2px solid #dce1e7;
+  background-color: white;
+  color: #2c3e50;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%232c3e50' d='M2 0L0 2h4L2 0zM2 5L0 3h4L2 5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: left 1rem center;
+  background-size: 0.75rem;
+  direction: rtl;
+  font-family: 'Tajawal', 'Cairo', sans-serif;
 }
 
 .filter-select:focus {
-    border-color: #3498db;
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+  border-color: #3498db;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.filter-button {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 16px;
+  border: none;
+  background-color: #3498db;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .filter-button:hover {
-    background-color: #2980b9;
+  background-color: #2980b9;
 }
 
 .results-count-box {
-    margin-top: 1.5rem;
-    padding: 1rem;
-    border-radius: 16px;
-    background-color: #ecf5fc;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    font-family: 'Tajawal', 'Cairo', sans-serif;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 16px;
+  background-color: #ecf5fc;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  font-family: 'Tajawal', 'Cairo', sans-serif;
 }
 
 .results-icon {
-    font-size: 1.5rem;
-    color: #3498db;
+  font-size: 1.5rem;
+  color: #3498db;
 }
 
 .results-text {
-    font-size: 1.2rem;
-    color: #2c3e50;
-    font-weight: bold;
+  font-size: 1.2rem;
+  color: #2c3e50;
+  font-weight: bold;
 }
 
 .results-text.no-results {
-    color: #e74c3c;
+  color: #e74c3c;
 }
