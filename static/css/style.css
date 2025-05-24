@@ -245,19 +245,8 @@ footer {
     opacity: 1;
 }
 
-.nav-links a:hover {
-    background-color: rgba(0, 0, 0, 0.5); /* transparent version of #1C409E */
-    transition: background-color 0.3s;
-    border-radius: 5px;
-    padding: 5px;
-}
-
 .nav-links a {
     transition: background-color 0.3s, transform 0.3s;
-}
-
-.nav-links a:hover {
-    transform: translateY(-3px);
 }
 
 .fade-in {
@@ -279,6 +268,9 @@ footer {
 }
 
 .nav-links a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    transform: scale(1.05);
+    background-color: #FFD700;
+    color: #1C409E;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    transform: translateY(-3px);
 }
