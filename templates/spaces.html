@@ -8,9 +8,8 @@
 <div class="filter-container">
     <form method="GET" action="/spaces" class="filter-form">
         <div class="filter-group">
-            <label for="city">اختر المدينة:</label>
             <select name="city" class="filter-select">
-                <option disabled selected>اختر المدينة</option>
+                <option disabled selected>المدينة</option>
                 {% for c in cities %}
                     <option value="{{ c['city'] }}" {% if request.args.get('city') == c['city'] %}selected{% endif %}>{{ c['city'] }}</option>
                 {% endfor %}
@@ -24,7 +23,7 @@
     <div class="results-count-box">
         {% if result_count > 0 %}
             <span class="results-icon">📊</span>
-            <span class="results-text">عدد النتائج: {{ result_count }}</span>
+            <span class="results-text">عدد مساحات العمل: {{ result_count }}</span>
         {% else %}
             <span class="results-text no-results">لا توجد /ساحات عمل مطابقة لخيارات البحث الحالية.</span>
         {% endif %}
