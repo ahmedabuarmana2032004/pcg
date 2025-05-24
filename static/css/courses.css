@@ -15,74 +15,84 @@
   --transition: all 0.3s ease;
 }
 
+/* إعادة تعيين أساسي للمتصفح وتحسين تجربة المستخدم */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* يضمن أن الهوامش والحشو لا تزيد من حجم العناصر */
+}
+
 body {
   font-family: 'Tajawal', 'Cairo', sans-serif;
   background-color: #f8fafc;
   color: var(--dark);
   line-height: 1.6;
-  overflow-x: hidden;
+  overflow-x: hidden; /* يمنع ظهور شريط التمرير الأفقي غير المرغوب فيه */
   margin: 0;
-  width: 100%;
   padding: 0;
 }
 
-.courses-section {
-  padding: 3rem 0;
-}
-
+/* التخطيط العام */
 .container {
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
+  margin: 0 auto; /* توسيط الحاوية */
+  padding: 2rem 1rem; /* حشو للحاوية، يتكيف على الشاشات الأصغر */
+  display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
   justify-content: center;
-  flex-wrap: wrap;
-  display: flex;
 }
 
-.about-image {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 280px;
-  max-width: 400px;
+.courses-section {
+  padding: 3rem 0; /* حشو علوي وسفلي للقسم */
 }
 
-.about-image img {
-  width: 100%;
-  height: auto;
-  max-height: 300px; 
-  object-fit: contain;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-
+/* العناوين */
 .section-title {
+  position: relative;
   text-align: center;
   font-size: 2.2rem;
   margin-bottom: 2rem;
   color: var(--dark);
-  position: relative;
-  padding-bottom: 15px;
+  padding-bottom: 15px; /* مسافة للخط السفلي */
 }
 
 .section-title::after {
   content: '';
   position: absolute;
   bottom: 0;
-  right: 50%;
-  transform: translateX(50%);
+  left: 50%; /* لتوسيط الخط */
+  transform: translateX(-50%); /* لتوسيط الخط */
   width: 80px;
   height: 4px;
   background-color: var(--primary);
   border-radius: 2px;
 }
 
+/* قسم "حول" */
+.about-image {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 280px; /* يضمن عدم تضاؤل الصورة أكثر من اللازم */
+  max-width: 400px;
+}
+
+.about-image img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* شريط البحث */
 .search-box {
   display: flex;
   flex-grow: 1;
   max-width: 500px;
+  width: 100%; /* يضمن أخذ العرض الكامل على الجوالات */
 }
 
 .search-input {
@@ -115,10 +125,12 @@ body {
   background-color: #1e40af;
 }
 
+/* بطاقات الدورات */
 .row {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* تعديل الحد الأدنى للعرض ليتناسب مع شاشات الجوال بشكل أفضل */
   gap: 1.5rem;
+  width: 100%; /* يضمن أخذ العرض الكامل */
 }
 
 .course-card {
@@ -134,8 +146,8 @@ body {
 
 .course-card:hover {
   transform: translateY(-6px) scale(1.01);
-  transition: transform 0.3s ease;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
 }
 
 .course-media {
@@ -157,32 +169,34 @@ body {
 
 .company-logo-container {
   position: absolute;
-  top: 100px;
+  top: 100px; /* قد تحتاج لتعديل هذا ليتناسب مع تصميمك */
   left: 20px;
-  background: transparent; /* تغيير من white إلى transparent */
-  padding: 0; /* إزالة الـ padding */
-  border-radius: 50%; 
-  width: 80px; 
+  background: transparent;
+  width: 80px;
   height: 80px;
+  border-radius: 50%;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  border: none; 
-  overflow: hidden; 
+  overflow: hidden;
+  cursor: pointer;
+  transition: var(--transition);
+  padding: 0;
+  border: none;
+}
+
+.company-logo-container:hover {
+  transform: scale(1.1);
 }
 
 .company-logo {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* تغيير من contain إلى cover */
-  border-radius: 50%; /* إضافة هذه الخاصية */
+  object-fit: cover;
+  border-radius: 50%;
 }
 
-.company-logo-container:hover {
-  transform: scale(1.1);
-  transition: var(--transition);
-}
 .course-details {
   padding: 1.5rem;
   flex-grow: 1;
@@ -190,18 +204,13 @@ body {
   flex-direction: column;
 }
 
-.company-logo-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 0;
-}
-
 .course-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 1rem;
+  flex-wrap: wrap; /* يسمح للعناصر بالتفاف على شاشات الجوال */
+  gap: 0.5rem; /* مسافة بين العناصر الملتفة */
 }
 
 .course-title {
@@ -209,6 +218,7 @@ body {
   color: var(--dark);
   margin: 0;
   font-weight: 700;
+  flex-grow: 1; /* يسمح للعنوان بأخذ المساحة المتاحة */
 }
 
 .course-type {
@@ -216,7 +226,7 @@ body {
   padding: 0.3rem 0.8rem;
   border-radius: 20px;
   font-weight: 600;
-  background-color: #05908A;
+  white-space: nowrap; /* يمنع انقسام النص */
 }
 
 .course-type.online {
@@ -231,7 +241,7 @@ body {
 
 .course-meta {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); /* تعديل لتناسب شاشات أصغر */
   gap: 1rem;
   margin-bottom: 1.5rem;
 }
@@ -242,11 +252,11 @@ body {
   color: var(--gray);
   font-size: 0.9rem;
   gap: 6px;
-  direction: rtl;
+  direction: rtl; /* الاتجاه من اليمين لليسار */
 }
 
 .company_address {
-  white-space: nowrap; /* prevent line break if you want it fully on one line */
+  white-space: nowrap;
 }
 
 .meta-item i {
@@ -262,14 +272,13 @@ body {
   margin-bottom: 1.5rem;
   font-size: 1.2rem;
   flex-grow: 1;
-
 }
 
 .course-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* يسمح للعناصر بالالتفاف */
   gap: 1rem;
   margin-top: auto;
 }
@@ -278,6 +287,7 @@ body {
   display: flex;
   align-items: center;
   gap: 1rem;
+  flex-wrap: wrap; /* يسمح للعناصر بالالتفاف */
 }
 
 .course-price {
@@ -295,6 +305,7 @@ body {
   font-weight: 600;
   display: inline-flex;
   align-items: center;
+  white-space: nowrap;
 }
 
 .certificate-badge i {
@@ -357,96 +368,138 @@ body {
   transform: translateY(-2px);
 }
 
-@media (max-width: 600px) {
-  
-  .filter-container {
-    padding: 1rem;
-  }
-
-  .filter-button {
-    font-size: 1rem;
-  }
-
-  .filter-select {
-    font-size: 1rem;
-    padding: 0.8rem;
-  }
-
-  .section-title {
-      font-size: 1.8rem;
-  }
-  
-  .row {
-      grid-template-columns: 1fr;
-  }
-  
-  .search-box {
-      max-width: 100%;
-  }
-  
-  .course-media {
-      height: 180px;
-  }
-  
-  .course-meta {
-      grid-template-columns: 1fr;
-  }
-  
-  .course-footer {
-      flex-direction: column;
-      align-items: flex-start;
-  }
-  
-  .price-certificate {
-      margin-bottom: 1rem;
-  }
-  
-  .course-actions {
-      width: 100%;
-      justify-content: space-between;
-  }
-}
-
-/* إضافة هذه التنسيقات الجديدة */
-.header-container {
+/* عناصر الفلتر */
+.filter-container {
+  background-color: #f9f9f9;
+  padding: 2rem;
+  border-radius: 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  margin: 2rem auto;
+  max-width: 700px;
   text-align: center;
-  margin-bottom: 2rem;
 }
 
-.section-title {
-  font-size: 2.2rem;
+.filter-group {
   margin-bottom: 1.5rem;
-  color: var(--dark);
-  position: relative;
-  display: inline-block;
+  text-align: right;
 }
 
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  right: 50%;
-  transform: translateX(50%);
-  width: 80px;
-  height: 4px;
-  background-color: var(--primary);
-  border-radius: 2px;
+.filter-container label {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  display: block;
 }
 
-.search-box {
-  display: flex;
+.filter-select {
   width: 100%;
-  max-width: 400px;
+  padding: 1rem;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  border: 2px solid #dce1e7;
+  background-color: white;
+  color: #2c3e50;
+  appearance: none;
+  direction: rtl;
+  font-family: 'Tajawal', 'Cairo', sans-serif;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%232c3e50' d='M2 0L0 2h4L2 0zM2 5L0 3h4L2 5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: left 1rem center;
+  background-size: 0.75rem;
 }
 
+.filter-select:focus {
+  border-color: var(--primary); /* استخدام متغير اللون الأساسي */
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.filter-button {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 16px;
+  border: none;
+  background-color: var(--primary); /* استخدام متغير اللون الأساسي */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.filter-button:hover {
+  background-color: #2980b9;
+}
+
+.results-count-box {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 16px;
+  background-color: #ecf5fc;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: var(--shadow);
+  font-family: 'Tajawal', 'Cairo', sans-serif;
+  font-size: 1rem;
+  color: var(--primary); /* استخدام متغير اللون الأساسي */
+  font-weight: 600;
+}
+
+.results-icon {
+  font-size: 1.5rem;
+  color: var(--primary); /* استخدام متغير اللون الأساسي */
+}
+
+.results-text {
+  font-size: 1.2rem;
+  color: var(--dark);
+  font-weight: bold;
+}
+
+.results-text.no-results {
+  color: var(--danger);
+}
+
+.filter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.filter-group-horizontal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.filter-group-horizontal label {
+  flex: 0 0 30%;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #2c3e50;
+  text-align: right;
+}
+
+.filter-group-horizontal .filter-select {
+  flex: 1;
+}
+
+/* عناصر إضافية */
 .course-documint {
   font-size: 20px;
 }
 
 .search-button {
+  /* هذه الفئة مكررة جزئيًا مع .search-btn و.filter-button، يفضل توحيدها أو إعادة تسميتها */
   grid-column: span 2;
   padding: 0.8rem 1.2rem;
-  background-color: #3498db;
+  background-color: var(--primary); /* استخدام متغير اللون الأساسي */
   color: #fff;
   border: none;
   border-radius: 10px;
@@ -482,136 +535,125 @@ body {
 }
 
 .phone-bubble i {
-  color: #3b82f6;
+  color: var(--primary);
 }
 
-/* Filter Style */
+/* استعلامات الوسائط (Media Queries) - الأهم للجوال */
 
-/* الفلتر العام */
-.filter-container {
-    background-color: #f9f9f9;
-    padding: 2rem;
-    border-radius: 24px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-    margin: 2rem auto;
-    max-width: 700px;
-    text-align: center;
-}
-
-/* كل مجموعة فلتر (label + select) */
-.filter-group {
-    margin-bottom: 1.5rem;
-    text-align: right;
-}
-
-/* عنوان كل فلتر */
-.filter-container label {
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: #2c3e50;
-    margin-bottom: 0.5rem;
-    display: block;
-}
-
-/* القوائم المنسدلة */
-.filter-select {
-    width: 100%;
+/* للأجهزة اللوحية والشاشات الصغيرة (أقل من 768px) */
+@media (max-width: 768px) {
+  .container,
+  .filter-container {
     padding: 1rem;
-    font-size: 1.1rem;
-    border-radius: 12px;
-    border: 2px solid #dce1e7;
-    background-color: white;
-    color: #2c3e50;
-    appearance: none;
-    direction: rtl;
-    font-family: 'Tajawal', 'Cairo', sans-serif;
-    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%232c3e50' d='M2 0L0 2h4L2 0zM2 5L0 3h4L2 5z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: left 1rem center;
-    background-size: 0.75rem;
-}
+    margin: 0 1rem; /* يضمن مسافة على الجانبين */
+  }
 
-.filter-select:focus {
-    border-color: #3498db;
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
-}
+  .section-title {
+    font-size: 2rem; /* تقليل حجم العنوان */
+  }
 
-/* زر البحث */
-.filter-button {
-    margin-top: 1rem;
-    width: 100%;
-    padding: 1rem;
-    font-size: 1.2rem;
-    font-weight: bold;
-    border-radius: 16px;
-    border: none;
-    background-color: #3498db;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
+  .row {
+    grid-template-columns: 1fr; /* عمود واحد لجميع الشاشات الأصغر من 768px */
+  }
 
-.filter-button:hover {
-    background-color: #2980b9;
-}
+  .course-media {
+    height: 180px; /* تقليل ارتفاع وسائط الدورة */
+  }
 
-/* عرض عدد النتائج */
-.results-count-box {
-    margin-top: 1.5rem;
-    padding: 1rem;
-    border-radius: 16px;
-    background-color: #ecf5fc;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    font-family: 'Tajawal', 'Cairo', sans-serif;
-    font-size: 1rem;
-    color: #2563eb;
-    font-weight: 600;
-    box-shadow: var(--shadow);
-}
+  .search-box {
+    max-width: 100%; /* تأكد من أخذ العرض الكامل */
+    flex-direction: column; /* ترتيب البحث والزر عموديًا */
+  }
 
-.results-icon {
-    font-size: 1.5rem;
-    color: #3498db;
-}
+  .search-input {
+    border-radius: var(--radius); /* تقريب جميع الزوايا */
+    margin-bottom: 0.5rem; /* مسافة بين الإدخال والزر */
+  }
 
-.results-text {
-    font-size: 1.2rem;
-    color: #2c3e50;
-    font-weight: bold;
-}
+  .search-btn {
+    border-radius: var(--radius); /* تقريب جميع الزوايا */
+    width: 100%; /* اجعل الزر يأخذ العرض الكامل */
+    padding: 0.8rem 1.5rem; /* تعديل الحشو للزر */
+  }
 
-.results-text.no-results {
-    color: #e74c3c;
-}
-
-.filter-form {
-    display: flex;
+  .course-footer,
+  .course-actions {
     flex-direction: column;
-    gap: 1.5rem;
-}
+    align-items: flex-start;
+    width: 100%; /* تأكد من أخذ العرض الكامل */
+  }
 
-.filter-group-horizontal {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
+  .price-certificate {
+    margin-bottom: 1rem;
+  }
 
-.filter-group-horizontal label {
-    flex: 0 0 30%;
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: #2c3e50;
+  .filter-group-horizontal {
+    flex-direction: column; /* ترتيب الفلاتر الأفقية عموديًا */
+  }
+
+  .filter-group-horizontal label,
+  .filter-group-horizontal .filter-select {
+    flex: 1 1 100%; /* تأكد من أخذ العرض الكامل */
     text-align: right;
+  }
+
+  .filter-select {
+    background-position: left 0.5rem center; /* ضبط موقع السهم في قائمة الفلتر */
+    padding-right: 1rem; /* زيادة الحشو لليمين لتجنب تداخل النص مع السهم */
+    padding-left: 2rem; /* زيادة الحشو لليسار للسهم */
+  }
 }
 
-.filter-group-horizontal .filter-select {
-    flex: 1;
+/* للهواتف الصغيرة جدًا (أقل من 480px) */
+@media (max-width: 480px) {
+  body {
+    font-size: 15px; /* زيادة حجم الخط الأساسي لتحسين القراءة */
+  }
+
+  .section-title {
+    font-size: 1.8rem; /* تقليل حجم العنوان أكثر */
+    margin-bottom: 1.5rem;
+  }
+
+  .container {
+    padding: 1rem 0.5rem; /* حشو أقل على الشاشات الصغيرة جدًا */
+  }
+
+  .courses-section {
+    padding: 2rem 0; /* تقليل حشو القسم */
+  }
+
+  .course-title {
+    font-size: 1.2rem; /* تقليل حجم عنوان الدورة */
+  }
+
+  .course-description {
+    font-size: 1rem; /* تقليل حجم وصف الدورة */
+  }
+
+  .contact-btn {
+    font-size: 0.85rem; /* تعديل حجم زر الاتصال */
+    padding: 0.6rem 1rem;
+  }
+
+  .social-links a {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
+
+  .company-logo-container {
+    top: 140px; /* ضبط موقع الشعار ليتناسب مع ارتفاع الوسائط المعدل */
+    width: 70px;
+    height: 70px;
+  }
+
+  .filter-container {
+    padding: 1rem; /* حشو أقل لوعاء الفلتر */
+  }
+
+  .filter-select,
+  .filter-button {
+    font-size: 1rem; /* تقليل حجم خط الفلتر والأزرار */
+  }
 }
-/* End filter style */
