@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="courses-container">
+    <h1 class="section-title">كورسات يوتيوب</h1>
+
+        <div class="filter-container">
+            <form method="GET" action="/podcast" class="filter-form">
+                <div class="filter-group">
+                    <select name="podcast_field" class="filter-select">
+                    <option disabled selected>المجال</option>
+                    {% for podcast_field in podcast_fields %}
+                        <option value="{{ podcast_field['podcast_field'] }}" {% if request.args.get('podcast_field') == podcast_field['podcast_field'] %}selected{% endif %}>{{ podcast_field['podcast_field'] }}</option>
+                    {% endfor %}
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <select name="podcast_guest" class="filter-select">
+                    <option disabled selected>ضيف البودكاست</option>
+                    {% for podcast_guest in podcast_guests %}
+                        <option value="{{ podcast_guest['podcast_guest'] }}" {% if request.args.get('podcast_guest') == podcast_guest['podcast_guest'] %}selected{% endif %}>{{ podcast_guest['podcast_guest'] }}</option>
+                    {% endfor %}
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <select name="podcast_name" class="filter-select">
+                    <option disabled selected>اسم البودكاست</option>
+                    {% for podcast_name in podcast_names %}
+                        <option value="{{ podcast_name['podcast_name'] }}" {% if request.args.get('podcast_name') == podcast_name['podcast_name'] %}selected{% endif %}>{{ podcast_name['podcast_name'] }}</option>
+                    {% endfor %}
+                    </select>
+                </div>
+
+                <button type="submit" class="filter-button">بحث</button>
+            </form>
+
+    <!-- Show result count -->
+    <div class="results-count-box">
+        {% if result_count > 0 %}
+            <span class="results-icon">📊</span>
+            <span class="results-text">عدد البودكاست: {{ result_count }}</span>
+        {% else %}
+            <span class="results-text no-results">لا توجد كورسات مطابقة لخيارات البحث الحالية.</span>
+        {% endif %}
+    </div>
+    </div>
+
+
+    <div class="podcast-list">
+        {% for podcast in podcasts %}
+            <div class="podcast-card" style="animation-delay: {{ loop.index * 0.1 }}s;">
+                <img src="{{ url_for('static', filename='podcast/' ~ podcast['podcast_image']) }}" alt="صورة البودكاست">
+            
+                <div>
+                <h2 class="podcast-title">{{ podcast["podcast_title"] }}</h2>
+                    <p class="podcast-description">بودكاست {{ podcast["podcast_name"] }}</p>
+                    <div class="podcast-details">
+                        <p><strong>ضيف البودكاست:</strong> {{ podcast["podcast_guest"] }}</p>
+                        <p><strong>مجال البودكاست:</strong> {{ podcast["podcast_field"] }}</p>
+                        <p><strong>المدة:</strong> {{ podcast["duration_h"] }} ساعة و {{ podcast["duration_m"] }} دقيقة </p>
+                    </div>
+
+                    <a href="{{ podcast['podcast_url'] }}" class="course-link" target="_blank">
+                        مشاهدة البودكاست على يوتيوب
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
