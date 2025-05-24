@@ -7,9 +7,8 @@
         <div class="filter-container">
             <form method="GET" action="/youtube_channels" class="filter-form">
                 <div class="filter-group">
-                    <label for="category">اختر المجال:</label>
                     <select name="category" class="filter-select">
-                    <option disabled selected>اختر المجال </option>
+                    <option disabled selected>المجال</option>
                     {% for category in categorys %}
                         <option value="{{ category['category'] }}" {% if request.args.get('category') == category['category'] %}selected{% endif %}>{{ category['category'] }}</option>
                     {% endfor %}
@@ -17,9 +16,8 @@
                 </div>
 
                 <div class="filter-group">
-                    <label for="course_title">اختر عنوان الكورس:</label>
                     <select name="course_title" class="filter-select">
-                        <option disabled selected>اختر عنوان الكورس </option>
+                        <option disabled selected> عنوان الكورس</option>
                         {% for course_title in course_titles %}
                             <option value="{{ course_title['course_title'] }}" {% if request.args.get('course_title') == course_title['course_title'] %}selected{% endif %}>{{ course_title['course_title'] }}</option>
                         {% endfor %}
@@ -34,7 +32,7 @@
     <div class="results-count-box">
         {% if result_count > 0 %}
             <span class="results-icon">📊</span>
-            <span class="results-text">عدد النتائج: {{ result_count }}</span>
+            <span class="results-text">عدد الكورسات: {{ result_count }}</span>
         {% else %}
             <span class="results-text no-results">لا توجد كورسات مطابقة لخيارات البحث الحالية.</span>
         {% endif %}
@@ -47,7 +45,7 @@
         <div class="course-card" style="animation-delay: {{ loop.index * 0.1 }}s;">
             <img src="{{ url_for('static', filename='youtube_courses/' ~ course['course_image']) }}" alt="صورة الكورس">
             
-            <div style="padding: 1rem;">
+            <div>
                 <h2 class="course-title">{{ course["course_title"] }}</h2>
                 <p class="course-description">{{ course["course_description"] }}</p>
                 <div class="course-details">
