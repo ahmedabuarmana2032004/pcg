@@ -26,7 +26,17 @@
 
     <!-- أيقونة الموقع -->
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}" />
-
+    
+    <!-- Google tag (gtag.js) --> <!-- إحصاءات جوجل-->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S9XN4XT5E2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-S9XN4XT5E2');
+    </script>
+    
     <!-- Google Adsense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3175786782240756" crossorigin="anonymous"></script>
 </head>
