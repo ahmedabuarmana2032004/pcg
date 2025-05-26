@@ -205,8 +205,30 @@ def podcast():
         podcast_names=podcast_names,
         result_count=result_count)
 
+@app.route('/ai_tools')
+def ai_tools():
+    db = get_db()
+    query = "SELECT * FROM ai_tools WHERE 1=1"
+    params = []
 
+    category = request.args.get("category")
+    cursor = db.execute("SELECT DISTINCT category FROM ai_tools")
+    categorys = cursor.fetchall()
+    if category:
+        query += " AND category = ?"
+        params.append(category)
 
+    cursor = db.execute(query, params)
+    ai_tools = cursor.fetchall()
+
+    result_count = len(ai_tools)
+
+    return render_template(
+        'ai_tools.html', 
+        custom_css='ai_tools',
+        ai_tools=ai_tools,
+        categorys=categorys,
+        result_count=result_count)
 
 if __name__ == "__main__":
     app.run(debug=True, port=9000)
