@@ -1,73 +1,90 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>PCG: Palestine Courses Gathering</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/' + custom_css + '.css') }}">
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo&family=Tajawal&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <!--    For Google Adsense    -->
+
+    <!-- CSS ملفات -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/' + custom_css + '.css') }}" />
+
+    <!-- أيقونات فاير أوسوم (Font Awesome) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <!-- خطوط جوجل -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo&family=Tajawal:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS مكتبة التحريك -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+    <!-- أيقونة الموقع -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}" />
+
+    <!-- Google Adsense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3175786782240756" crossorigin="anonymous"></script>
 </head>
 <body>
-    
-    <header>
-        <nav>
-            <div class="logo">
-                <a href="/">
-                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="PCG Logo" style="height: 100px;">
-                </a>
-                <a href="/" class="logo-text">تجمع كورسات فلسطين "PCG"</a>
-            </div>
-            <div class="menu-icon" onclick="toggleMenu()">
-                <i class="fas fa-bars"></i>
-            </div>
 
-            <div class="nav-links" id="navLinks">
-                <a href="/courses" ><i class="fas fa-book-open"></i>كورسات </a>
-                <a href="/spaces" ><i class="fas fa-location-dot"></i>مساحات العمل </a>
-                <a href="/youtube_channels" ><i class="fa-brands fa-youtube"></i>قنوات يوتيوب</a>
-                <a href="/podcast" ><i class="fas fa-podcast"></i>بودكاست</a>
-                <a href="/help" ><i class="fas fa-circle-question"></i>مساعدة </a>
-            </div>
-        </nav>
+<header>
+    <nav>
+        <div class="logo">
+            <a href="/">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="PCG Logo" style="height: 100px;" />
+            </a>
+            <a href="/" class="logo-text">تجمع كورسات فلسطين "PCG"</a>
+        </div>
 
-        <div class="container">
-            <div class="main-content">
-                <h1 class="fade-in">اهلاً وسهلاً بكم في تجمع كورسات فلسطين</h1>
-                {% block body %}
-                {% endblock %}
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <div class="nav-links" id="navLinks">
+            <a href="/spaces"><i class="fas fa-location-dot"></i>مساحات العمل</a>
+            <a href="/youtube_channels"><i class="fa-brands fa-youtube"></i>قنوات يوتيوب</a>
+            <a href="/podcast"><i class="fas fa-podcast"></i>بودكاست</a>
+            <a href="/courses"><i class="fas fa-book-open"></i>كورسات</a>
+            <a href="/ai_tools"><i class="fas fa-robot"></i>أدوات ذكاء اصطناعي</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="main-content">
+            <h1 class="fade-in">اهلاً وسهلاً بكم في تجمع كورسات فلسطين</h1>
+            {% block body %}{% endblock %}
+        </div>
+
+        <div class="right-sidebar">
+            <div class="ads" data-aos="zoom-in">
+                <p>توجد دورات Udemy مجانية يمكنك الوصول اليها من هنا
+                    <a href="https://linktr.ee/brain_tech_1542024" target="_blank">Brain Tech</a>
+                </p>
             </div>
-            <div class="right-sidebar">
-                <div class="ads" data-aos="zoom-in">
-                    <p>توجد دورات Udemy مجانية يمكنك الوصول اليها من هنا <a href="https://linktr.ee/brain_tech_1542024" target="_blank">Brain Tech</a></p>
-                </div>
-                <div class="ads" data-aos="zoom-in">
-                    <p>إذا كنت شركة أو مؤسسة تقدم دورات وترغب بإضافة دوراتك على المنصة، يمكنك التواصل معنا مباشرة على الرقم: <b>0567809047</b></p>
-                </div>
-                <div class="ads" data-aos="zoom-in">
-                    <p>لإضافة إعلانات هنا على المنصة، يمكنك التواصل معنا مباشرة على الرقم: <b>0567809047</b></p>
-                </div>
-                <div class="ads" data-aos="zoom-in">
-                    <p>يمكنكم التواصل معنا عبر Telegram من الرابط التالي <a href="https://t.me/pcg752025" target="_blank">PCG</a></p>
-                </div>
-                <div class="ads" data-aos="zoom-in">
-                    <p>يمكنكم التواصل معنا عبر Whatsapp من الرابط التالي <a href="https://wa.me/qr/HFPA6WK4ANDLP1" target="_blank">PCG</a></p>
-                </div>
+            <div class="ads" data-aos="zoom-in">
+                <p>إذا كنت شركة أو مؤسسة تقدم دورات وترغب بإضافة دوراتك على المنصة، يمكنك التواصل معنا مباشرة على الرقم: <b>0567809047</b></p>
+            </div>
+            <div class="ads" data-aos="zoom-in">
+                <p>لإضافة إعلانات هنا على المنصة، يمكنك التواصل معنا مباشرة على الرقم: <b>0567809047</b></p>
+            </div>
+            <div class="ads" data-aos="zoom-in">
+                <p>يمكنكم التواصل معنا عبر Telegram من الرابط التالي
+                    <a href="https://t.me/pcg752025" target="_blank">PCG</a>
+                </p>
+            </div>
+            <div class="ads" data-aos="zoom-in">
+                <p>يمكنكم التواصل معنا عبر Whatsapp من الرابط التالي
+                    <a href="https://wa.me/qr/HFPA6WK4ANDLP1" target="_blank">PCG</a>
+                </p>
             </div>
         </div>
-        
-    </header>
-
-    <div>
     </div>
+</header>
 
 <footer>
     <div class="footer-container" style="text-align: center; direction: rtl;">
@@ -100,25 +117,28 @@
     </div>
 </footer>
 
-    <script>
-        function toggleMenu() {
+<script>
+    // فتح وغلق قائمة التنقل في الجوال
+    function toggleMenu() {
         document.getElementById("navLinks").classList.toggle("show");
-        }
-    </script>
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    
-    <script>
+    }
+</script>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
     AOS.init({
         duration: 800,
         easing: 'ease-in-out',
         once: true,
     });
-    </script>
-    
-    <script>
-        document.querySelector('.filter-form').addEventListener('submit', function() {
-            this.querySelector('.filter-button').innerHTML = '<span class="spinner"></span> جاري البحث...';
-        });
-    </script>
+</script>
+
+<script>
+    // زر البحث يظهر "جاري البحث..." عند الإرسال
+    document.querySelector('.filter-form')?.addEventListener('submit', function () {
+        this.querySelector('.filter-button').innerHTML = '<span class="spinner"></span> جاري البحث...';
+    });
+</script>
+
 </body>
 </html>

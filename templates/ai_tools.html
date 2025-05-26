@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block title %}أدوات الذكاء الاصطناعي | تجمع كورسات فلسطين{% endblock %}
+
+{% block body %}
+<div class="ai-tools-container">
+    <div class="ai-header text-center">
+        <h2>🧠 أدوات الذكاء الاصطناعي</h2>
+        <p class="subtitle">اكتشف أحدث الأدوات التقنية لتعزيز إنتاجيتك</p>
+    </div>
+
+    <!-- أيقونات المجالات -->
+    <div class="categories-icons text-center">
+        {% for category in categorys %}
+            <a href="#{{ category['category'] | replace(' ', '_') }}" class="category-icon-link">
+                <div class="category-icon">
+                    <span class="category-name">{{ category['category'] }}</span>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+
+    <hr>
+
+    <!-- تصنيف الأدوات حسب المجال -->
+    {% for category in categorys %}
+        <div class="category-section" id="{{ category['category'] | replace(' ', '_') }}">
+            <h3 class="category-title text-right">🛠️ {{ category['category'] }}</h3>
+            <div class="ai-tools-grid">
+                {% for tool in ai_tools %}
+                    {% if tool.category == category['category'] %}
+                        <div class="ai-tool-card">
+                            {% if tool.logo_url %}
+                            <div class="tool-logo">
+                                <img src="{{ url_for('static', filename='ai_tools/' + tool.logo_url) }}" alt="شعار الأداة" class="ai-tool-image">
+                            </div>
+                            {% endif %}
+                            <div class="tool-content">
+                                <h3 class="tool-title">{{ tool.name }}</h3>
+                                <p class="tool-description">{{ tool.description }}</p>
+                                <div class="tool-meta">
+                                    <div class="tool-badges">
+                                        <span class="category-badge">{{ tool.category }}</span>
+                                        {% if tool.pricing_model %}
+                                            <span class="pricing-badge {{ tool.pricing_model }}">
+                                                {% if tool.pricing_model == 'free' %}مجاني{% elif tool.pricing_model == 'freemium' %}مجاني جزئيًا{% elif tool.pricing_model == 'paid' %}مدفوع{% elif tool.pricing_model == 'open_source' %}مفتوح المصدر{% elif tool.pricing_model == 'trial' %}نسخة تجريبية{% endif %}
+                                            </span>
+                                        {% endif %}
+                                        <span class="account-badge {{ tool.requires_account }}">
+                                            {% if tool.requires_account == 'true' %}يتطلب حساب{% else %}بدون تسجيل{% endif %}
+                                        </span>
+                                    </div>
+                                    {% if tool.language_support %}
+                                    <div class="language-support">
+                                        <span class="language-label">اللغات المدعومة:</span>
+                                        <span class="languages">{{ tool.language_support }}</span>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="tool-footer">
+                                <a href="{{ tool.url }}" target="_blank" class="visit-btn">
+                                    <span>تجربة الأداة</span>
+                                    <svg class="icon" viewBox="0 0 24 24">
+                                        <path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19V6.413L11.207 14.207L9.793 12.793L17.585 5H13V3H21Z"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <hr>
+    {% endfor %}
+</div>
+{% endblock %}
