@@ -416,21 +416,27 @@ body {
 }
 
 .filter-button {
-  margin-top: 1rem;
-  width: 100%;
-  padding: 1rem;
-  font-size: 1.2rem;
-  font-weight: bold;
-  border-radius: 16px;
-  border: none;
-  background-color: var(--primary); /* استخدام متغير اللون الأساسي */
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s;
+    grid-column: 1 / -1;
+    padding: 15px 30px;
+    background: linear-gradient(45deg, #3498db, #2980b9);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .filter-button:hover {
-  background-color: #2980b9;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(52, 152, 219, 0.4);
+}
+
+.filter-button:active {
+    transform: translateY(-1px);
 }
 
 .results-count-box {
