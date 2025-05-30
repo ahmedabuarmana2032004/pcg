@@ -39,8 +39,18 @@
             <p><strong>العنوان: </strong> {{ space.address }}</p>
             <p><strong>ساعات العمل: </strong> {{ space.start_working }} - {{ space.end_working }}</p>
             {% if space.price_per_hour %}
-            <p><strong>السعر/ساعة</strong> {{ space.price_per_hour }} شيكل</p>
+                {% if space.price_per_hour == 'free' %}
+                    <p>
+                    <strong>السعر/ساعة:</strong>
+                    <span class="badge-free">مجاناً</span>
+                    </p>
+                {% else %}
+                    <p>
+                        <strong>السعر/ساعة:</strong> {{ space.price_per_hour }} شيكل
+                    </p>
+                {% endif %}
             {% endif %}
+
             <p><strong>رقم الهاتف: </strong> 0{{ space.phone_number }}</p>
 
 
