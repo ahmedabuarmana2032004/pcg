@@ -417,12 +417,45 @@ body {
     }
 }
 
+/* تنسيق عام للبادج */
 .badge-free {
     display: inline-block;
-    padding: 4px 10px;
-    background-color: #4CAF50;
-    color: white;
-    border-radius: 20px;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 14px;
     font-weight: bold;
-    font-size: 0.95em;
+    margin-right: 5px;
+    vertical-align: middle;
+    
+    /* تدرج لوني مميز */
+    background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+    color: white;
+    
+    /* تأثيرات ظل لتحسين المظهر */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    
+    /* حركة بسيطة عند التحويم */
+    transition: all 0.3s ease;
+}
+
+/* تأثير عند التحويم */
+.badge-free:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* تنسيق الأيقونة (الهدية) */
+.badge-free::before {
+    content: "🎁";
+    margin-left: 5px;
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+/* تنسيق للعرض على الأجهزة الصغيرة */
+@media (max-width: 768px) {
+    .badge-free {
+        font-size: 12px;
+        padding: 3px 6px;
+    }
 }
