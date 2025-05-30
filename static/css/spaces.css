@@ -416,3 +416,13 @@ body {
         background: #f0f0f0 !important;
     }
 }
+
+.badge-free {
+    display: inline-block;
+    padding: 4px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.95em;
+}
