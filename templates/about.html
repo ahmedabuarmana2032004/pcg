@@ -3,89 +3,139 @@
 {% block title %}من نحن{% endblock %}
 
 {% block body %}
+<!-- شريط متدرج في الأعلى -->
+<div class="gradient-top-bar"></div>
+
 <section class="about-pcg" dir="rtl">
-    <div class="container">
-        <div class="about-image">
-            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="عن منصة PCG" class="feature-image">
+            <div class="about-header">
+            <div class="about-image">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="عن منصة PCG" class="feature-image">
+            </div>
+            <div class="header-text">
+                <h1>منصة <span>PCG</span></h1>
+                <p class="tagline">بوابة التعليم الرقمي الأولى في فلسطين</p>
+            </div>
         </div>
-        
-        <div class="text-content">
-            <h1>منصة <span>PCG</span></h1>
+    <div class="container">
+        <div class="about-content">
+            <div class="mission-section">
+                <h2>رؤيتنا ورسالتنا</h2>
+                <p>نحن في منصة PCG نؤمن بأن التعليم حق للجميع، ونسعى جاهدين لتوفير بيئة تعليمية شاملة ومتكاملة تتيح للطلاب والمتعلمين في فلسطين الوصول إلى أفضل الموارد التعليمية بكل سهولة ويسر.</p>
+                
+                <div class="mission-cards">
+                    <div class="mission-card">
+                        <div class="mission-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" fill="#3b82f6"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm4.59-12.42L10 14.17l-2.59-2.58L6 13l4 4 8-8z"/></svg>
+                        </div>
+                        <h3>الرؤية</h3>
+                        <p>أن نكون المنصة التعليمية الرائدة في فلسطين التي تربط بين المتعلمين وفرص التطور المهني.</p>
+                    </div>
+                    
+                    <div class="mission-card">
+                        <div class="mission-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" fill="#10b981"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.31-8.86c-1.77-.45-2.34-.94-2.34-1.67 0-.84.79-1.43 2.1-1.43 1.38 0 1.9.66 1.94 1.64h1.71c-.05-1.34-.87-2.57-2.49-2.97V5H10.9v1.69c-1.51.32-2.72 1.3-2.72 2.81 0 1.79 1.49 2.69 3.66 3.21 1.95.46 2.34 1.15 2.34 1.87 0 .53-.39 1.39-2.1 1.39-1.6 0-2.23-.72-2.32-1.64H8.04c.1 1.7 1.36 2.66 2.86 2.97V19h2.34v-1.67c1.52-.29 2.72-1.16 2.73-2.77-.01-2.2-1.9-2.96-3.66-3.42z"/></svg>
+                        </div>
+                        <h3>الرسالة</h3>
+                        <p>تمكين الشباب الفلسطيني من خلال توفير وسائل تعليمية حديثة وبيئات تعلم ملائمة.</p>
+                    </div>
+                </div>
+            </div>
             
-            <p class="lead">وجهتك الأولى لاكتشاف فرص التعلم في فلسطين.</p>
-            <p>نقدم دورات في البرمجة، التصميم، اللغات، وغيرها بدون الحاجة لحساب، ونساعد الطلاب في العثور على أماكن دراسة هادئة.</p>
-            <p>ابدأ رحلتك مع PCG بكل سهولة ووضوح.</p>
-
-            <div class="features">
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="#2563eb" viewBox="0 0 24 24" width="28"><path d="M21 20l-5.197-5.197A6.5 6.5 0 1013.5 16c1.14 0 2.208-.3 3.126-.824L20 21l1-1zM10 14a4 4 0 110-8 4 4 0 010 8z"/></svg>
+            <div class="services-section">
+                <h2>خدماتنا الرئيسية</h2>
+                <p>نقدم مجموعة متكاملة من الخدمات التعليمية والتقنية التي تلبي احتياجات المتعلمين والمهنيين</p>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" fill="#2563eb"><path d="M21 20l-5.197-5.197A6.5 6.5 0 1013.5 16c1.14 0 2.208-.3 3.126-.824L20 21l1-1zM10 14a4 4 0 110-8 4 4 0 010 8z"/></svg>
+                        </div>
+                        <h3>أدوات الذكاء الاصطناعي</h3>
+                        <p>مجموعة متكاملة من أدوات الذكاء الاصطناعي في مختلف المجالات لتسريع إنتاجيتك وإبداعك</p>
+                        <a href="/ai_tools" class="service-link">استكشف الأدوات</a>
                     </div>
-                    <div class="feature-text">
-                        <h3>اكتشاف الدورات</h3>
-                        <p>ابحث عن الدورة المناسبة بسهولة</p>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" fill="#059669"><path d="M12 2C7.031 2 3 6.031 3 11c0 5.25 6.75 11 9 11s9-5.75 9-11c0-4.969-4.031-9-9-9zm0 13a2 2 0 112 2 2 2 0 01-2-2zm2.586-4.414a1 1 0 00-1.414 1.414A2.978 2.978 0 0112 13a2.978 2.978 0 01-2.172-.879 1 1 0 00-1.414-1.414A4.978 4.978 0 0012 15a4.978 4.978 0 003.586-1.414 1 1 0 000-1.414z"/></svg>
+                        </div>
+                        <h3>كورسات محلية</h3>
+                        <p>دورات تدريبية عالية الجودة في مختلف المجالات التقنية والمهنية</p>
+                        <a href="/courses" class="service-link">تصفح الكورسات</a>
                     </div>
-                </div>
-
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="#059669" viewBox="0 0 24 24" width="28"><path d="M12 2C7.031 2 3 6.031 3 11c0 5.25 6.75 11 9 11s9-5.75 9-11c0-4.969-4.031-9-9-9zm0 13a2 2 0 112 2 2 2 0 01-2-2zm2.586-4.414a1 1 0 00-1.414 1.414A2.978 2.978 0 0112 13a2.978 2.978 0 01-2.172-.879 1 1 0 00-1.414-1.414A4.978 4.978 0 0012 15a4.978 4.978 0 003.586-1.414 1 1 0 000-1.414z"/></svg>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" fill="#d946ef"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5-9h10v2H7z"/></svg>
+                        </div>
+                        <h3>كورسات يوتيوب</h3>
+                        <p>مجموعة مختارة من أفضل القنوات التعليمية المجانية على يوتيوب</p>
+                        <a href="/youtube_channels" class="service-link">اكتشف القنوات</a>
                     </div>
-                    <div class="feature-text">
-                        <h3>أماكن الدراسة</h3>
-                        <p>أماكن هادئة مزودة بإنترنت</p>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" fill="#3b82f6"><path d="M12 2a5 5 0 015 5v2a5 5 0 01-10 0V7a5 5 0 015-5zm7 9a5 5 0 015 5v1h-5v-1a3 3 0 00-2.824-2.995L16 13h5zm-14 0h5a3 3 0 012.995 2.824L13 16v1H5v-1a5 5 0 015-5z"/></svg>
+                        </div>
+                        <h3>البودكاست</h3>
+                        <p>محتويات صوتية مميزة في التقنية والتنمية الذاتية والمجالات المختلفة</p>
+                        <a href="/podcast" class="service-link">استمع الآن</a>
                     </div>
-                </div>
-
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="#ef4444" viewBox="0 0 24 24" width="28"><path d="M2 21l1.5-5H2V4h20v12H6l-4 5z"/></svg>
-                    </div>
-                    <div class="feature-text">
-                        <h3>تواصل مباشر</h3>
-                        <p>اسأل مباشرة مقدمي الدورات</p>
-                    </div>
-                </div>
-
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="#3b82f6" viewBox="0 0 24 24" width="28" height="28"><path d="M12 2a5 5 0 015 5v2a5 5 0 01-10 0V7a5 5 0 015-5zm7 9a5 5 0 015 5v1h-5v-1a3 3 0 00-2.824-2.995L16 13h5zm-14 0h5a3 3 0 012.995 2.824L13 16v1H5v-1a5 5 0 015-5z"/></svg>
-                    </div>
-                    <div class="feature-text">
-                        <h3>مجتمع تعليمي</h3>
-                        <p>انضم إلى مجتمع المتعلمين وتبادل الخبرات والمعرفة</p>
-                    </div>
-                </div>
-
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" fill="#6d28d9" dir="rtl">
-                            <path d="M12 3a3 3 0 00-3 3v6a3 3 0 106 0V6a3 3 0 00-3-3z" />
-                            <path d="M5 10a7 7 0 0114 0v1h2v-1a9 9 0 00-18 0v1h2v-1z" />
-                            <path d="M3 15h2v2H3zM7 14h2v4H7zM11 13h2v6h-2zM15 14h2v4h-2zM19 15h2v2h-2z" style="transform: scaleX(-1)" />
-                        </svg>
-                    </div>
-                    <div class="feature-text">
-                        <h3>أحداث تعليمية</h3>
-                        <p>كن على اطلاع بأحدث الفعاليات وورش العمل التعليمية</p>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" fill="#ef4444"><path d="M2 21l1.5-5H2V4h20v12H6l-4 5z"/></svg>
+                        </div>
+                        <h3>مساحات العمل</h3>
+                        <p>دليل شامل لأفضل مساحات العمل المشتركة والمكتبات في مختلف المدن</p>
+                        <a href="/spaces" class="service-link">ابحث عن مساحة</a>
                     </div>
                 </div>
-
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" fill="#059669" dir="rtl">
-                            <path d="M4 5h16v11H4z" stroke-width="1.5" />
-                            <path d="M2 18h20v1a1 1 0 01-1 1H3a1 1 0 01-1-1v-1z" />
-                            <path d="M8 8h8v6H8z" fill="#fff" />
-                            <path d="M9 9h2v1H9zM13 9h2v1h-2zM9 11h6v1H9z" fill="#059669" />
-                            <path d="M12 13a1 1 0 100 2 1 1 0 000-2z" />
-                            <path d="M12 10a4 4 0 00-4 4h2a2 2 0 114 0h2a4 4 0 00-4-4z" fill="none" stroke="#059669" stroke-width="1.5" />
-                        </svg>
+            </div>
+            
+            <div class="team-section">
+                <h2>فريقنا</h2>
+                <p>نحن فريق من الشباب الفلسطيني المتحمس لتطوير التعليم الرقمي في وطننا</p>
+                
+                <div class="team-members">
+                    <div class="member-card">
+                        <div class="member-image">
+                            <img src="{{ url_for('static', filename='images/ahmed_mohammed.jpg') }}" alt="مؤسس المنصة">
+                        </div>
+                        <h3>أحمد محمد ابو عرمانة</h3>
+                        <p>مؤسس المنصة</p>
+                        <p>خبرة في مجال الويب والبرمجة</p>
                     </div>
-                    <div class="feature-text">
-                        <h3>تعلم عن بعد</h3>
-                        <p>إمكانية التعلم عن بعد من أي مكان وفي أي وقت</p>
+                    
+                    <!-- <div class="member-card">
+                        <div class="member-image">
+                            <img src="{{ url_for('static', filename='images/team2.jpg') }}" alt="مسؤول التسويق">
+                        </div>
+                        <h3>سارة خالد</h3>
+                        <p>مسؤول التسويق</p>
+                        <p>خبرات طويلة في مجال التسويق على مواقع التواصل الاجتماعي والاعلانات</p>
                     </div>
+                    
+                    <div class="member-card">
+                        <div class="member-image">
+                            <img src="{{ url_for('static', filename='images/team3.jpg') }}" alt="عضو الفريق">
+                        </div>
+                        <h3>محمد عمر</h3>
+                        <p>مطور الويب</p>
+                        <p>خبرة في بناء المنصات التعليمية</p>
+                    </div> -->
+                </div>
+            </div>
+            
+            <div class="cta-section">
+                <h2>جاهز لبدء رحلتك التعليمية؟</h2>
+                <p>انضم إلى آلاف المتعلمين الذين طوروا مهاراتهم من خلال منصتنا</p>
+                <div class="cta-links">
+                    <a href="/ai_tools" class="cta-button">أدوات الذكاء الاصطناعي</a>
+                    <a href="/courses" class="cta-button">الكورسات المحلية</a>
+                    <a href="/youtube_channels" class="cta-button">كورسات يوتيوب</a>
+                    <a href="/bodcast" class="cta-button">بودكاست</a>
+                    <a href="/spaces" class="cta-button">مساحات العمل</a>
                 </div>
             </div>
         </div>

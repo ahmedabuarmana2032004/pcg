@@ -39,7 +39,7 @@
             <p><strong>العنوان: </strong> {{ space.address }}</p>
             <p><strong>ساعات العمل: </strong> {{ space.start_working }} - {{ space.end_working }}</p>
             {% if space.price_per_hour %}
-                {% if space.price_per_hour == 'free' %}
+                {% if space.price_per_hour == 0 %}
                     <p>
                     <strong>السعر/ساعة:</strong>
                     <span class="badge-free">مجاناً</span>
