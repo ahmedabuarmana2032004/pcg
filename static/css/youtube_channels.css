@@ -180,10 +180,15 @@ body {
 /* Filter Style */
 .filter-group {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: 1rem;
+}
+
+.filter-group .filter-select,
+.filter-group .filter-button {
+  flex: 1 1 200px; /* يتمدد ويصغر حسب الحاجة، والحد الأدنى 200px */
+  min-width: 150px;
 }
 
 .filter-group label {
@@ -237,8 +242,6 @@ body {
 }
 
 .filter-button {
-  width: 100%;
-  grid-column: 1 / -1;
   padding: 15px 30px;
   background: linear-gradient(45deg, #3498db, #2980b9);
   color: white;
@@ -250,11 +253,13 @@ body {
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 1px;
+  height: 100%; /* لمحاذاته مع الحقول */
+  white-space: nowrap;
 }
 
 .filter-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(52, 152, 219, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(52, 152, 219, 0.4);
 }
 
 .filter-button:active {

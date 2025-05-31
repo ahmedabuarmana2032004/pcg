@@ -1,191 +1,543 @@
+/* ملف styles.css للمنصة */
+
+/* الأساسيات والخطوط */
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap');
+
 :root {
-    --primary: #2563eb;
-    --primary-light: #dbeafe;
-    --success: #059669;
-    --success-light: #d1fae5;
-    --danger: #ef4444;
-    --danger-light: #fee2e2;
-    --dark: #1f2937;
-    --gray: #6b7280;
-    --light: #f9fafb;
-    --radius: 12px;
-    --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    --transition: all 0.3s ease;
+  --primary-color: #2563eb;
+  --primary-dark: #1d4ed8;
+  --secondary-color: #10b981;
+  --accent-color: #d946ef;
+  --text-dark: #1f2937;
+  --text-light: #6b7280;
+  --light-bg: #f9fafb;
+  --white: #ffffff;
+  --gradient: linear-gradient(90deg, #2563eb 0%, #10b981 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    overflow-x: hidden;
-    font-family: 'Tajawal', sans-serif;
-    background-color: var(--light);
-    color: var(--dark);
+  font-family: 'Tajawal', sans-serif;
+  color: var(--text-dark);
+  background-color: var(--light-bg);
+  direction: rtl;
+  line-height: 1.6;
 }
 
-.about-pcg {
-    padding: 2rem 1rem;
-    line-height: 1.7;
-    width: 100%;
-    overflow: hidden;
+/* شريط التدرج العلوي */
+.gradient-top-bar {
+  height: 8px;
+  width: 100%;
+  background: var(--gradient);
+  background-size: 200% 200%;
+  animation: gradientAnimation 8s ease infinite;
 }
 
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* الحاوية الرئيسية */
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    max-width: 1200px;
-    margin: auto;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-.text-content {
-    flex: 1;
-    min-width: 280px;
+/* قسم من نحن */
+.about-pcg {
+  padding: 40px 0;
+  animation: fadeIn 1s ease-out;
 }
 
-.about-pcg h1 {
-    font-size: 2.2rem;
-    font-weight: 800;
-    margin-bottom: 1.2rem;
-    color: var(--dark);
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.about-pcg h1 span {
-    color: var(--primary);
-    position: relative;
-}
-
-.about-pcg h1 span::after {
-    content: '';
-    position: absolute;
-    bottom: 5px;
-    right: 0;
-    width: 100%;
-    height: 8px;
-    background-color: rgba(37, 99, 235, 0.2);
-    z-index: -1;
-    border-radius: 4px;
-}
-
-.about-pcg .lead {
-    font-size: 1.1rem;
-    font-weight: 500;
-    margin-bottom: 1.5rem;
-}
-
-.about-pcg p {
-    color: var(--gray);
-    margin-bottom: 1.2rem;
-    font-size: 1rem;
+/* رأس الصفحة */
+.about-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
 }
 
 .about-image {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 280px;
-    max-width: 400px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border: 5px solid var(--white);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.about-image:hover {
+  transform: scale(1.05);
 }
 
 .about-image img {
-    width: 100%;
-    max-height: 300px;
-    height: auto;
-    object-fit: cover;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
-.features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.5rem;
-    margin-top: 3rem;
+.header-text h1 {
+  font-size: 2.5rem;
+  margin-top: 20px;
+  color: var(--primary-color);
+  font-weight: 700;
 }
 
-.feature-item {
-    background: white;
-    padding: 1.5rem;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-    border-right: 4px solid transparent;
-    transition: var(--transition);
+.header-text h1 span {
+  color: var(--secondary-color);
+  position: relative;
 }
 
-.feature-item:hover {
-    transform: translateY(-5px);
-    border-right-color: var(--primary);
+.header-text h1 span::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  right: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--gradient);
+  border-radius: 3px;
 }
 
-.feature-icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
+.tagline {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  margin-top: 10px;
 }
 
-.feature-item:nth-child(1) .feature-icon { background-color: #dbeafe; }
-.feature-item:nth-child(2) .feature-icon { background-color: #ede9fe; }
-.feature-item:nth-child(3) .feature-icon { background-color: #d1fae5; }
-.feature-item:nth-child(4) .feature-icon { background-color: #dbeafe; }
-.feature-item:nth-child(5) .feature-icon { background-color: #ede9fe; }
-.feature-item:nth-child(6) .feature-icon { background-color: #d1fae5; }
-
-.feature-text h3 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    color: var(--dark);
+/* بطاقات الرؤية والرسالة */
+.mission-section {
+  margin-bottom: 60px;
+  animation: slideInRight 1s ease-out;
 }
 
-.feature-text p {
-    font-size: 0.95rem;
-    margin-bottom: 0;
-    color: var(--gray);
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-.feature-image {
-    width: 100%;
-    height: auto;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    transition: var(--transition);    
+.mission-section h2, 
+.services-section h2,
+.team-section h2,
+.cta-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: var(--primary-color);
+  position: relative;
 }
 
-.feature-image:hover {
-    transform: scale(1.02);
+.mission-section h2::after,
+.services-section h2::after,
+.team-section h2::after,
+.cta-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  right: 50%;
+  transform: translateX(50%);
+  width: 80px;
+  height: 3px;
+  background: var(--gradient);
+  border-radius: 3px;
 }
 
-/* Responsive Adjustments */
+.mission-section p,
+.services-section p,
+.team-section p,
+.cta-section p {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 30px;
+  color: var(--text-light);
+  font-size: 1.1rem;
+}
+
+.mission-cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: inherit;
+  margin-top: 40px;
+}
+
+.mission-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 30px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.mission-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.mission-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 5px;
+  height: 100%;
+  background: var(--gradient);
+  transition: width 0.3s ease;
+}
+
+.mission-card:hover::before {
+  width: 10px;
+}
+
+.mission-icon {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.mission-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: var(--primary-dark);
+  text-align: center;
+}
+
+.mission-card p {
+  text-align: center;
+  margin-bottom: 0;
+  color: var(--text-dark);
+}
+
+/* قسم الخدمات */
+.services-section {
+  margin-bottom: 60px;
+  animation: slideInLeft 1s ease-out;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.service-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.service-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--gradient);
+  transition: height 0.3s ease;
+}
+
+.service-card:hover::after {
+  height: 8px;
+}
+
+.service-icon {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.service-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: var(--primary-dark);
+  text-align: center;
+}
+
+.service-card p {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--text-dark);
+}
+
+.service-link {
+  display: block;
+  text-align: center;
+  padding: 10px 20px;
+  background: var(--primary-color);
+  color: var(--white);
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.service-link:hover {
+  background: var(--primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+}
+
+/* قسم الفريق */
+.team-section {
+  margin-bottom: 60px;
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.team-members {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.member-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 30px;
+  width: 100%;
+  max-width: 300px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.member-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.member-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 20px;
+  border: 5px solid var(--light-bg);
+  transition: all 0.3s ease;
+}
+
+.member-card:hover .member-image {
+  border-color: var(--primary-color);
+}
+
+.member-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.member-card:hover .member-image img {
+  transform: scale(1.1);
+}
+
+.member-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: var(--primary-dark);
+}
+
+.member-card p {
+  color: var(--text-light);
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+/* قسم الدعوة للعمل */
+.cta-section {
+  background: var(--gradient);
+  padding: 60px 20px;
+  border-radius: 12px;
+  margin-top: 60px;
+  text-align: center;
+  color: var(--white);
+  background-size: 200% 200%;
+  animation: gradientAnimation 8s ease infinite;
+}
+
+.cta-section h2 {
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+.cta-section h2::after {
+  background: var(--white);
+}
+
+.cta-section p {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+}
+
+.cta-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 12px 30px;
+  background: var(--white);
+  color: var(--primary-color);
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* تأثيرات الحركة عند التمرير */
+[data-aos] {
+  transition: all 0.8s ease;
+}
+
+.aos-fade {
+  opacity: 0;
+  transition-property: opacity;
+}
+
+.aos-fade.aos-animate {
+  opacity: 1;
+}
+
+.aos-slide-right {
+  transform: translateX(50px);
+  opacity: 0;
+  transition-property: transform, opacity;
+}
+
+.aos-slide-right.aos-animate {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.aos-slide-left {
+  transform: translateX(-50px);
+  opacity: 0;
+  transition-property: transform, opacity;
+}
+
+.aos-slide-left.aos-animate {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* التكيف مع الشاشات الصغيرة */
 @media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        text-align: center;
-        padding: 1.5rem 1rem;
-    } 
-
-    .about-pcg h1 {
-        font-size: 1.8rem;
-    }
-
-    .about-pcg .lead {
-        font-size: 1rem;
-    }
-
-    .feature-text h3 {
-        font-size: 1rem;
-    }
-
-    .feature-text p {
-        font-size: 0.9rem;
-    }
+  .about-header {
+    flex-direction: column;
+  }
+  
+  .mission-cards,
+  .team-members {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .mission-card,
+  .member-card {
+    max-width: 100%;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cta-links {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cta-button {
+    width: 100%;
+    max-width: 250px;
+  }
 }
