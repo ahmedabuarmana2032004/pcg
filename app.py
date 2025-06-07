@@ -230,5 +230,21 @@ def ai_tools():
         categorys=categorys,
         result_count=result_count)
 
+@app.route('/articles')
+def articles():
+    db = get_db()
+
+    cursor = db.execute("SELECT * FROM articles")
+    articles = cursor.fetchall()
+
+    result_count = len(articles)
+
+    return render_template(
+        'articles.html', 
+        custom_css='articles',
+        articles=articles,
+        result_count=result_count)
+
+
 if __name__ == "__main__":
     app.run(debug=True, port=9000)
