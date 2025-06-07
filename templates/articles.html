@@ -1,0 +1,93 @@
+{% extends "layout.html" %} 
+
+{% block head %}
+    <!-- ربط ملف CSS الخارجي -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/articles-style.css') }}">
+    <!-- Font Awesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+{% endblock %}
+
+{% block body %} 
+<h2 class="text-center mb-4">قائمة المقالات التقنية</h2> 
+<div class="container py-5"> 
+    <div class="articles-grid"> 
+        {% for article in articles %} 
+            <div class="article-card"> 
+                <div class="article-badge">{{ loop.index }}</div> 
+                <h3 class="article-title">{{ article.title }}</h3> 
+                <div class="article-actions"> 
+                    <a href="{{ article.url }}" target="_blank" class="article-link"> 
+                        <i class="fas fa-book-open"></i> اقرأ المقال 
+                    </a> 
+                    <button  
+                        class="action-btn share-btn"  
+                        onclick="shareArticle('{{ article.title | escape }}', '{{ article.url | escape }}')" 
+                        title="مشاركة"> 
+                        <i class="fas fa-share-alt"></i> 
+                    </button> 
+                    <button  
+                        class="action-btn copy-btn"  
+                        onclick="copyLink('{{ article.url | escape }}')" 
+                        title="نسخ الرابط"> 
+                        <i class="fas fa-copy"></i> 
+                    </button> 
+                </div> 
+            </div> 
+        {% else %} 
+            <div class="no-articles text-center">لا توجد مقالات متاحة</div> 
+        {% endfor %} 
+    </div> 
+</div> 
+ 
+<script> 
+    function copyLink(url) { 
+        navigator.clipboard.writeText(url) 
+            .then(() => {
+                // تحسين رسالة النجاح
+                const notification = document.createElement('div');
+                notification.textContent = 'تم نسخ الرابط بنجاح! ✓';
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: linear-gradient(45deg, #658BD1, #81A5DB);
+                    color: white;
+                    padding: 1rem 2rem;
+                    border-radius: 10px;
+                    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                    z-index: 1000;
+                    animation: slideIn 0.3s ease;
+                `;
+                document.body.appendChild(notification);
+                setTimeout(() => {
+                    notification.style.animation = 'slideOut 0.3s ease';
+                    setTimeout(() => notification.remove(), 300);
+                }, 2000);
+            }) 
+            .catch(() => alert('حدث خطأ أثناء نسخ الرابط.')); 
+    } 
+ 
+    function shareArticle(title, url) { 
+        if (navigator.share) { 
+            navigator.share({ title, url }) 
+                .catch(err => console.error('خطأ أثناء المشاركة:', err)); 
+        } else { 
+            copyLink(url); 
+        } 
+    }
+
+    // إضافة الأنميشن للتنبيهات
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes slideOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
+    `;
+    document.head.appendChild(style);
+</script> 
+{% endblock %}

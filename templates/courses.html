@@ -72,7 +72,13 @@
                     <div class="course-details">
                         <div class="course-header">
                             <h2 class="course-title">{{ course['english_name_course'] }}</h2>
-                            <span class="course-type">{{ course['online/in-person'] }}</span>
+                            {% if course['online/in-person'] == 'أونلاين' %}
+                            <span class="course-type" data-type="online">أونلاين</span>
+                            {% elif course['online/in-person'] == 'وجاهي' %}
+                                <span class="course-type" data-type="inperson">وجاهي</span>
+                            {% elif course['online/in-person'] == 'مُدمَج (أونلاين + وجاهي)' %}
+                                <span class="course-type" data-type="mixed">مُدمَج (أونلاين + وجاهي)</span>
+                            {% endif %}
                         </div>
 
                         <div class="course-meta">
@@ -116,7 +122,7 @@
                                     <span class="course-badge free">مجاني</span>
                                 {% endif %}
 
-                                {% if course['certificate'] %}
+                                {% if course['certificate'] == 'مع شهادة'%}
                                     <span class="certificate-badge">
                                         <i class="fas fa-award"></i> شهادة معتمدة
                                     </span>
@@ -156,4 +162,5 @@
         </div>
     </div>
 </section>
+
 {% endblock %}
