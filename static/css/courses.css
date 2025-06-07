@@ -226,17 +226,42 @@ body {
   padding: 0.3rem 0.8rem;
   border-radius: 20px;
   font-weight: 600;
-  white-space: nowrap; /* يمنع انقسام النص */
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: 'Tajawal', sans-serif; /* خط مناسب للعربية */
 }
 
-.course-type.online {
+.course-type:before {
+  content: "";
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+}
+
+.course-type[data-type="online"] {
   background-color: #e0ecff;
   color: var(--primary);
 }
+.course-type[data-type="online"]:before {
+  background-color: var(--primary);
+}
 
-.course-type.in-person {
+.course-type[data-type="inperson"] {
   background-color: #d9f5e4;
   color: var(--success);
+}
+.course-type[data-type="inperson"]:before {
+  background-color: var(--success);
+}
+
+.course-type[data-type="mixed"] {
+  background-color: #f0e0ff;
+  color: #8a2be2; /* لون بنفسجي */
+}
+.course-type[data-type="mixed"]:before {
+  background: linear-gradient(90deg, var(--primary) 50%, var(--success) 50%);
 }
 
 .course-meta {
