@@ -1,4 +1,4 @@
-from flask import Flask, render_template, g, request
+from flask import Flask, render_template, g, request, send_from_directory
 import sqlite3
 from datetime import datetime
 
@@ -8,6 +8,12 @@ app = Flask(__name__, static_folder='static', static_url_path='/static')
 db = sqlite3.connect("pcg.db")
 
 DATABASE = "pcg.db"
+
+
+@app.route('/ads.txt')
+def ads_txt():
+    return send_from_directory('.', 'ads.txt')
+
 
 def get_db():
     if 'db' not in g:
