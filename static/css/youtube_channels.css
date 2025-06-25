@@ -162,11 +162,11 @@ body {
 /* Courses List */
 .courses-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
-    padding: 1rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 35px;
+    max-width: 100%;
+    margin: 0;
+    padding: var(--spacing-lg);
 }
 
 /* Course Card */
