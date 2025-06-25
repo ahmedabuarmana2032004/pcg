@@ -39,7 +39,7 @@
             <p><strong>العنوان: </strong> {{ space.address }}</p>
             <p><strong>ساعات العمل: </strong> {{ space.start_working }} - {{ space.end_working }}</p>
             {% if space.price_per_hour %}
-                {% if space.price_per_hour == 0 %}
+                {% if space.price_per_hour == 111 %}
                     <p>
                     <strong>السعر/ساعة:</strong>
                     <span class="badge-free">مجاناً</span>
@@ -53,8 +53,6 @@
 
             <p><strong>رقم الهاتف: </strong> 0{{ space.phone_number }}</p>
 
-
-            <!-- <p class="social-media"><strong>للتواصل: </strong> <a href="{{ space.social_media_account }}" target="_blank"> اضغط هنا </a> </p> -->
             <div class="social-links">
                 <strong>للتواصل : </strong>
                     {% if space['facebook_account'] %}
